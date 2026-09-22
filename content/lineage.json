@@ -1,0 +1,31 @@
+{
+  "label": "Lineage",
+  "heading": "In conversation with",
+  "intro": "Works the artist reads as kin — where the picture surface is treated as skin, and the mark as an incision. Shown here as links to the holding museums.",
+  "cards": [
+    {
+      "title": "Wounds",
+      "artist": "Somnath Hore · 1983",
+      "text": "A series of paper-pulp prints where the sheet is bruised and torn from within — the wound not depicted but pressed into the surface itself.",
+      "link_label": "View at the V&A ↗",
+      "url": "https://collections.vam.ac.uk/item/O72215/wounds-print-hore-somnath/"
+    },
+    {
+      "title": "Spatial Concept",
+      "artist": "Lucio Fontana · from 1949",
+      "text": "The canvas slashed and punctured — the cut as the work, the surface opened rather than painted upon.",
+      "link_label": "View at the Met ↗",
+      "url": "https://www.metmuseum.org/press-releases/lucio-fontana-2019-exhibitions"
+    },
+    {
+      "title": "The Snail",
+      "artist": "Henri Matisse · 1953",
+      "text": "A spiral built from torn blocks of colour — sensation abstracted to its coil, a quiet companion to the cone-snail thread of the workshops.",
+      "link_label": "View at Tate ↗",
+      "url": "https://www.tate.org.uk/art/artworks/matisse-the-snail-t00540"
+    }
+  ],
+  "essay_label": "Drawing as a line of inquiry",
+  "essay": "The workshops at the NCBS Archives rest on an older claim: that drawing was one of the first instruments of natural science. In Rome in 1603 the Accademia dei Lincei — the Academy of the Lynxes, named for its all-seeing eye — set out to look at the world closely and record it. Its Paper Museum, assembled by Cassiano dal Pozzo, ran to thousands of drawings of natural and man-made things, and is credited with helping establish the ground rules of empirical science. Dal Pozzo's instruction still describes the method of these workshops: look at everything, but understand that insight often comes from attending to one thing, and drawing it again and again until you reach its essence. Francesco Stelluti's microscopic drawings of a bee, made for the Academy in 1630, are what that discipline produced when a lens was added to the eye.\n\nShells carry the same double life. An eleventh- or twelfth-century conch from eastern India or Bangladesh, carved with Lakshmi-Narayana, holds the shell as a sacred object. A century of Dutch and French still lifes — Jacques Linard's shells and coral of around 1640, Adriaen Coorte's of 1698 — holds it as a specimen, a curiosity and a proof: for Rumphius and his contemporaries, classification; for many of their patrons, natural theology, nature admired as evidence of divine making. That appetite had a name, conchylomania. K.S. Krishnan's cone shells in the NCBS Archives, collected for the analgesic peptides in their venom, sit at the end of that line — and Matisse's *Snail*, a spiral built from torn colour, sits alongside it.",
+  "note": "Also read alongside: Santiago Ramón y Cajal's neuroanatomical drawings, Nalini Malani, Marlene Dumas. Museum images are rights-controlled and are linked, not reproduced here. The works named in the essay above are described, not shown."
+}

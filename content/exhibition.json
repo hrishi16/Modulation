@@ -1,0 +1,199 @@
+{
+  "label": "The exhibition",
+  "heading": "Six panels",
+  "intro": "Each panel holds artworks and the science side by side — never separated. The colour tells you which register you are in: magenta is the science layer, drawn from the fluorescent tag in the Barik Lab micrographs.",
+  "panels": [
+    {
+      "number": "01",
+      "title": "Somatosensory system",
+      "science_tag": "touch · temperature · proprioception",
+      "text": "The body’s largest sensory apparatus — the whole skin and musculature — reading mechanical, thermal and chemical signals, and holding proprioception, the sense of where the body is in space.",
+      "images": [
+        {
+          "image": "images/towards_heaven.jpg",
+          "caption": "Towards Heaven",
+          "type": "art"
+        },
+        {
+          "image": "images/touching.jpg",
+          "caption": "Touching",
+          "type": "art"
+        }
+      ],
+      "strip_label": "",
+      "strip": [],
+      "links": [],
+      "pair_images": false
+    },
+    {
+      "number": "02",
+      "title": "Pain in the brain",
+      "science_tag": "processed centrally · modulated",
+      "text": "Pain is processed and ultimately felt in the brain — and it can be modulated. A person in a coma senses no pain; a soldier fights on injured; hunger can eclipse a wound. In the Barik Lab, the lateral hypothalamus emerges as a hub where emotional states — stress, anxiety — are translated, through the brainstem and spinal cord, into the modulation of pain and itch. A few hundred neurons out of billions, lit up by mouse genetics, are enough.",
+      "images": [
+        {
+          "image": "images/pain_in_the_brain.jpg",
+          "caption": "Pain in the Brain · painting, Asmita Sarkar",
+          "type": "art"
+        },
+        {
+          "image": "images/micrograph_tacr1.jpg",
+          "caption": "Digital work — micrograph reworked by the artist · Asmita Sarkar",
+          "type": "composite"
+        },
+        {
+          "image": "images/micrograph_rfp.jpg",
+          "caption": "Fluorescence micrograph, mouse spinal cord · Barik Lab, IISc",
+          "type": "science"
+        },
+        {
+          "image": "images/grpr_pbn.jpg",
+          "caption": "Grpr+ neurons, parabrachial nucleus · Barik Lab, IISc",
+          "type": "science"
+        }
+      ],
+      "strip_label": "Lateral hypothalamus — a few hundred neurons, lit up",
+      "strip": [
+        {
+          "image": "images/lh_0.jpg",
+          "caption": "Lateral hypothalamus",
+          "type": "science"
+        },
+        {
+          "image": "images/lh_1.jpg",
+          "caption": "Lateral hypothalamus",
+          "type": "science"
+        },
+        {
+          "image": "images/lh_2.jpg",
+          "caption": "Lateral hypothalamus",
+          "type": "science"
+        },
+        {
+          "image": "images/lh_3.jpg",
+          "caption": "Lateral hypothalamus",
+          "type": "science"
+        }
+      ],
+      "links": [
+        {
+          "label": "The Barik Lab",
+          "url": "https://sites.google.com/view/molecules-cells-and-circuits/home"
+        },
+        {
+          "label": "When pain becomes invisible — chronic pain, explained",
+          "url": "https://neosciencehub.com/when-pain-becomes-invisible-understanding-the-neuroscience-and-reality-of-chronic-suffering/"
+        }
+      ],
+      "pair_images": true
+    },
+    {
+      "number": "03",
+      "title": "Opioids / poppy",
+      "science_tag": "papaver somniferum · endorphins",
+      "text": "Papaver somniferum runs through Assyrian, Sumerian, Egyptian and Chinese medicine. The body also makes its own opioids, released by hard exertion.",
+      "images": [
+        {
+          "image": "images/flower_for_healing.jpg",
+          "caption": "A Flower for Healing",
+          "type": "art"
+        },
+        {
+          "image": "images/fleur_du_mal.jpg",
+          "caption": "Fleur du Mal",
+          "type": "art"
+        },
+        {
+          "image": "images/sweet_sorrow.jpg",
+          "caption": "Sweet Sorrow",
+          "type": "art"
+        }
+      ],
+      "strip_label": "",
+      "strip": [],
+      "links": [],
+      "pair_images": false
+    },
+    {
+      "number": "04",
+      "title": "Overcoming",
+      "science_tag": "deferral · attention",
+      "text": "In the trenches, in devotion and ritual, brain mechanisms defer pain in favour of something judged more urgent.",
+      "images": [
+        {
+          "image": "images/pushing_through.jpg",
+          "caption": "Pushing Through",
+          "type": "art"
+        },
+        {
+          "image": "images/chronic.jpg",
+          "caption": "Chronic",
+          "type": "art"
+        }
+      ],
+      "strip_label": "",
+      "strip": [],
+      "links": [],
+      "pair_images": false
+    },
+    {
+      "number": "05",
+      "title": "Anxiety and depression",
+      "science_tag": "comorbidity · impaired connection",
+      "text": "Chronic pain patients often develop both. Relieving the pain often doesn’t relieve the anxiety — the pain- and anxiety-encoding regions interact, and those connections are impaired in chronic pain.",
+      "images": [
+        {
+          "image": "images/in_blue.jpg",
+          "caption": "In Blue",
+          "type": "art"
+        },
+        {
+          "image": "images/that_sinking_feeling.jpg",
+          "caption": "That Sinking Feeling",
+          "type": "art"
+        }
+      ],
+      "strip_label": "",
+      "strip": [],
+      "links": [],
+      "pair_images": false
+    },
+    {
+      "number": "06",
+      "title": "Tactile sensation",
+      "science_tag": "cutaneous receptors · bonding",
+      "text": "Touch as a social bond — a caress, petting a dog — carried by specialised cutaneous receptors connected to nerves.",
+      "images": [
+        {
+          "image": "images/healing_touches.jpg",
+          "caption": "Healing Touches",
+          "type": "art"
+        },
+        {
+          "image": "images/rewiring.jpg",
+          "caption": "Rewiring",
+          "type": "art"
+        }
+      ],
+      "strip_label": "",
+      "strip": [],
+      "links": [],
+      "pair_images": false
+    }
+  ],
+  "inroom": {
+    "show": true,
+    "label": "In the room",
+    "text": "The panels were first shown as physical boards, with a note at the entrance and a guest book at the end — visitors were asked to leave a mark of their own.",
+    "images": [
+      {
+        "image": "images/exnote.jpg",
+        "caption": "Exhibition note — Asmita Sarkar & Arnab Barik"
+      },
+      {
+        "image": "images/guestbook.jpg",
+        "caption": "Cover of the guest book · Asmita Sarkar"
+      }
+    ]
+  }
+}

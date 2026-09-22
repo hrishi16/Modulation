@@ -1,0 +1,45 @@
+{
+  "pages": [
+    {
+      "title": "About the project",
+      "nav_label": "About",
+      "slug": "about",
+      "show_in_nav": true,
+      "label": "The project",
+      "blocks": [
+        {
+          "type": "text",
+          "body": "**Modulation** is a portal on the art and science of the senses, with a particular focus on pain. It brings together an artist-researcher and a neuroscience lab, invited artists, and the people who come to its workshops.\n\nPain is primarily protective, but it becomes pathological in chronic conditions like migraine and arthritis. Chronic pain is notoriously hard to treat, and one of the main reasons is how subjectively it is felt — our genes, our surroundings and our histories all shape it. Its emotional burden is substantial, yet most treatments address only the physical side. Because pain is so subjective, making images is a way into what it is actually like."
+        },
+        {
+          "type": "quote",
+          "text": "Neurologically speaking, pain and pleasure are two sides of the same coin.",
+          "source": "From the concept note — Asmita Sarkar"
+        },
+        {
+          "type": "text",
+          "body": "The specialised endings of nerve cells, each tuned to a different kind of signal, can be imagined as paintbrushes that paint our experience in shades of sensation. And the word neuroscience textbooks use for treating pain — *modulating* it — is the word painters use for blending rough edges and musicians for moving between keys."
+        },
+        {
+          "type": "image",
+          "image": "images/rewiring.jpg",
+          "caption": "Rewiring · Asmita Sarkar"
+        },
+        {
+          "type": "links",
+          "heading": "Further",
+          "items": [
+            {
+              "label": "The Barik Lab — SciComm",
+              "url": "https://sites.google.com/view/molecules-cells-and-circuits/scicomm"
+            },
+            {
+              "label": "Asmita Sarkar — Srishti Manipal",
+              "url": "https://srishtimanipalinstitute.in/teaching_faculty/asmita-sarkar/"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

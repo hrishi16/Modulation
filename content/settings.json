@@ -1,0 +1,50 @@
+{
+  "site_title": "Modulation",
+  "site_subtitle": "art & science of sensation",
+  "browser_title": "Modulation — exploring the art and science of sensation",
+  "theme": {
+    "background": "dark",
+    "accent": "#E0177F",
+    "display_font": "Fraunces"
+  },
+  "banner": {
+    "show": true,
+    "text": "Preview build · look & feel for review"
+  },
+  "nav": {
+    "home": "Home",
+    "exhibition": "The exhibition",
+    "takepart": "Take part",
+    "workshops": "Workshops",
+    "lineage": "Lineage",
+    "people": "Contributors",
+    "show_exhibition": true,
+    "show_takepart": true,
+    "show_workshops": true,
+    "show_lineage": true,
+    "show_people": true
+  },
+  "footer": {
+    "supported_by": "A Seed Grant 2025–2026 from the Manipal Academy of Higher Education",
+    "logo": "images/mahe_logo.png",
+    "note": "Artworks by Asmita Sarkar unless specified · © the respective artists",
+    "links": [
+      {
+        "label": "Barik Lab",
+        "url": "https://sites.google.com/view/molecules-cells-and-circuits/home"
+      },
+      {
+        "label": "Project film",
+        "url": "https://www.youtube.com/watch?v=-f1EKmDwfkA"
+      },
+      {
+        "label": "Arnab Barik — The Pain Pathways",
+        "url": "https://www.hydlitfest.org/hlf-2026-science-and-the-city/"
+      },
+      {
+        "label": "Asmita Sarkar",
+        "url": "https://srishtimanipalinstitute.in/teaching_faculty/asmita-sarkar/"
+      }
+    ]
+  }
+}

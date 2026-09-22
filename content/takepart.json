@@ -1,0 +1,59 @@
+{
+  "label": "Take part",
+  "heading": "Where is it, and what is it like?",
+  "intro": "Pain has no number that fits it. This is built on **body mapping** — mark where a sensation sits, then choose the image nearest to what it feels like. You compose a sentence; nothing here is stored.",
+  "choose_label": "Choose the one nearest to it",
+  "disclaimer": "A communication aid, not a diagnosis. If pain is affecting you, speak to a clinician.",
+  "choices": [
+    {
+      "image": "images/that_sinking_feeling.jpg",
+      "title": "That Sinking Feeling",
+      "words": [
+        "heavy",
+        "pulling",
+        "slow"
+      ],
+      "science": "Anxiety and depression often travel with chronic pain; the encoding regions interact."
+    },
+    {
+      "image": "images/chronic.jpg",
+      "title": "Chronic",
+      "words": [
+        "dull",
+        "constant",
+        "worn"
+      ],
+      "science": "When pain outlasts its cause it becomes pathological — and hard to treat."
+    },
+    {
+      "image": "images/fleur_du_mal.jpg",
+      "title": "Fleur du Mal",
+      "words": [
+        "sharp",
+        "blooming",
+        "bright"
+      ],
+      "science": "The poppy, Papaver somniferum, and the body’s own opioids sit behind this bloom."
+    },
+    {
+      "image": "images/in_blue.jpg",
+      "title": "In Blue",
+      "words": [
+        "cold",
+        "quiet",
+        "distant"
+      ],
+      "science": "Relieving pain often does not relieve the anxiety bound up with it."
+    },
+    {
+      "image": "images/rewiring.jpg",
+      "title": "Rewiring",
+      "words": [
+        "electric",
+        "branching",
+        "restless"
+      ],
+      "science": "Cutaneous receptors and their nerves carry both touch and its disruption."
+    }
+  ]
+}

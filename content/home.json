@@ -1,0 +1,35 @@
+{
+  "eyebrow": "A portal on the art and science of the senses — with a focus on pain",
+  "title": "Modulation",
+  "intro": "In neuroscience, the word for treating pain is *modulating* it. In painting and in music, modulation is the blending of rough edges, the synthesis of tone into harmony. One word, three fields — and the spine of this portal.",
+  "dial_hint": "Drag — art and science are one object at two settings · arrows for another pair",
+  "pairs": [
+    {
+      "felt": "images/pain_in_the_brain.jpg",
+      "felt_alt": "Painting: Pain in the Brain",
+      "measured": "images/micrograph_rfp.jpg",
+      "measured_alt": "Fluorescence micrograph, mouse spinal cord",
+      "felt_caption": "A painting tries to catch what pain *is like* from the inside.",
+      "measured_caption": "The same territory, measured: fluorescence-labelled neurons in a mouse spinal cord section — a micrograph from the lab.",
+      "credit": "Left — painting, Asmita Sarkar · Right — fluorescence micrograph, Barik Lab, IISc"
+    },
+    {
+      "felt": "images/micrograph_tacr1.jpg",
+      "felt_alt": "Digital work, reworked micrograph",
+      "measured": "images/grpr_pbn.jpg",
+      "measured_alt": "Grpr+ neurons, parabrachial nucleus",
+      "felt_caption": "Here the artist reworks a real circuit into something closer to feeling — bloom, spark, a private landscape.",
+      "measured_caption": "The same circuit, measured: Grpr+ neurons in the parabrachial nucleus, unedited.",
+      "credit": "Left — digital work, Asmita Sarkar · Right — fluorescence micrograph, Barik Lab, IISc"
+    }
+  ],
+  "quote": "The paintings try to catch the experience of pain rather than accurately illustrating any scientific process.",
+  "quote_source": "Exhibition note — Asmita Sarkar & Arnab Barik",
+  "film": {
+    "show": true,
+    "label": "The film",
+    "heading": "Pain, felt and drawn",
+    "youtube_id": "-f1EKmDwfkA",
+    "note": "Opens on YouTube. Paintings by Asmita Sarkar from the pilot with the Barik Lab (India Science Festival, IISER Pune, 2024). Film designed, edited and scored by Harsh Rathod. [On the lab’s SciComm page →](https://sites.google.com/view/molecules-cells-and-circuits/scicomm)"
+  }
+}

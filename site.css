@@ -1,0 +1,53 @@
+/* Additions for the hosted, editable build. The base design lives in style.css. */
+a.brand{text-decoration:none;display:inline-flex;align-items:baseline}
+.loading{padding:6rem 0;color:var(--paper-faint);font-family:var(--mono)}
+.route{display:none}
+.route.active{display:block}
+
+/* ---------- light theme (Settings → Theme → Background) ---------- */
+body[data-theme="light"]{
+  --stage:#F4F0E8; --stage-2:#ECE6DA; --panel:#E7E0D2;
+  --paper:#1B1815; --paper-dim:#4A433B; --paper-faint:#6E665B;
+  --line:rgba(27,24,21,.16); --line-2:rgba(27,24,21,.08);
+  background-image:none;
+}
+body[data-theme="light"] header.bar{background:rgba(244,240,232,.86)}
+body[data-theme="light"] .shot-bg{background:rgba(244,240,232,.95)}
+
+/* ---------- image viewer (shared by exhibition + workshops) ---------- */
+.shot-imgs{display:flex;gap:1rem;justify-content:center;align-items:flex-start}
+.shot-imgs figure{margin:0;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center}
+.shot-imgs img{max-height:70vh;max-width:100%;object-fit:contain;border:1px solid var(--line)}
+.shot-imgs.pair img{max-height:60vh}
+.shot-imgs figcaption{font-size:.85rem;color:var(--paper-dim);margin-top:.5rem;text-align:center}
+.shot-tag{display:inline-block;font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);padding:.1rem .4rem;margin-right:.45rem;border-radius:2px;color:var(--paper-dim)}
+.shot-tag.science{color:var(--fluor);border-color:var(--fluor)}
+.shot-tag.composite{color:var(--ochre);border-color:var(--ochre)}
+.shot-context{font-size:.88rem;color:var(--paper-faint);max-width:44rem;margin:.4rem auto 0;text-align:center}
+@media(max-width:700px){.shot-imgs.pair{flex-direction:column}.shot-imgs.pair img{max-height:36vh}}
+
+/* ---------- image-type badge on exhibition figures ---------- */
+.fig-type{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;margin-right:.4rem}
+.fig-type.science{color:var(--fluor)}
+.fig-type.composite{color:var(--ochre)}
+
+/* ---------- custom pages built from blocks ---------- */
+.pg{max-width:46rem}
+.pg-block{margin:0 0 2rem}
+.pg-block p{margin:0 0 1rem;color:var(--paper-dim)}
+.pg-block h3{font-size:1.6rem;margin-bottom:.8rem}
+.pg-quote{border-left:2px solid var(--fluor);padding:.4rem 0 .4rem 1.2rem}
+.pg-quote p{font-family:var(--display);font-size:1.45rem;line-height:1.35;color:var(--paper);margin:0}
+.pg-quote .src{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--paper-faint);margin-top:.6rem}
+.pg-img figure{margin:0}
+.pg-img img{border:1px solid var(--line);cursor:zoom-in}
+.pg-img figcaption{font-size:.85rem;color:var(--paper-faint);margin-top:.5rem}
+.pg-gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:.7rem}
+.pg-gallery button{padding:0;border:1px solid var(--line);background:none;cursor:zoom-in;aspect-ratio:1;overflow:hidden;border-radius:2px}
+.pg-gallery img{width:100%;height:100%;object-fit:cover}
+.pg-links a{display:block;color:var(--fluor);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--line-2)}
+.pg-video a.film{display:block}
+.md p{margin:0 0 1rem}
+.md p:last-child{margin-bottom:0}
+.md a{color:var(--fluor)}
+.dial .slider{width:100%;max-width:100%;margin-left:0;margin-right:0;box-sizing:border-box}

@@ -1,0 +1,811 @@
+# ─────────────────────────────────────────────────────────────
+#  Modulation — editor configuration (Decap CMS)
+#  At setup, change ONLY these three things (search for them):
+#    YOUR-GITHUB-USERNAME   (appears in repo, site_url, display_url)
+#    YOUR-SITE-ID           (from DecapBridge, in identity_url)
+#  Everything else describes the forms the editor sees at /admin.
+# ─────────────────────────────────────────────────────────────
+backend:
+  name: git-gateway
+  repo: YOUR-GITHUB-USERNAME/modulation
+  branch: main
+  identity_url: https://auth.decapbridge.com/sites/YOUR-SITE-ID
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    update: Edit {{collection}} → {{slug}}
+    uploadMedia: Upload {{path}}
+    deleteMedia: Delete {{path}}
+site_url: https://YOUR-GITHUB-USERNAME.github.io/modulation/
+display_url: https://YOUR-GITHUB-USERNAME.github.io/modulation/
+local_backend: true
+media_folder: images
+public_folder: images
+editor:
+  preview: false
+collections:
+- name: site
+  label: Site
+  description: Everything on the site lives here. Open a section, change it, press Publish. The live site updates in about a minute.
+  extension: json
+  format: json
+  editor:
+    preview: false
+  files:
+  - name: settings
+    label: ⚙︎ Settings, theme & menu
+    file: content/settings.json
+    fields:
+    - name: site_title
+      label: Site name
+      widget: string
+    - name: site_subtitle
+      label: Subtitle next to the name
+      widget: string
+    - name: browser_title
+      label: Title shown in the browser tab
+      widget: string
+    - name: theme
+      label: Theme
+      widget: object
+      fields:
+      - name: background
+        label: Background
+        widget: select
+        options:
+        - label: Dark
+          value: dark
+        - label: Light
+          value: light
+      - name: accent
+        label: Accent colour (the science magenta)
+        widget: color
+      - name: display_font
+        label: Heading typeface
+        widget: select
+        options:
+        - Fraunces
+        - Cormorant Garamond
+        - Libre Baskerville
+    - name: banner
+      label: Banner across the top
+      widget: object
+      fields:
+      - name: show
+        label: Show the banner
+        widget: boolean
+      - name: text
+        label: Banner text
+        widget: string
+        required: false
+    - name: nav
+      label: Menu — names and which sections are shown
+      hint: Invited-artist rooms and extra pages have their own 'show in menu' switch.
+      widget: object
+      collapsed: true
+      fields:
+      - name: home
+        label: Home — menu name
+        widget: string
+      - name: exhibition
+        label: Exhibition — menu name
+        widget: string
+      - name: show_exhibition
+        label: Show the exhibition
+        widget: boolean
+      - name: takepart
+        label: Take part — menu name
+        widget: string
+      - name: show_takepart
+        label: Show Take part
+        widget: boolean
+      - name: workshops
+        label: Workshops — menu name
+        widget: string
+      - name: show_workshops
+        label: Show Workshops
+        widget: boolean
+      - name: lineage
+        label: Lineage — menu name
+        widget: string
+      - name: show_lineage
+        label: Show Lineage
+        widget: boolean
+      - name: people
+        label: Contributors — menu name
+        widget: string
+      - name: show_people
+        label: Show Contributors
+        widget: boolean
+    - name: footer
+      label: Footer
+      widget: object
+      collapsed: true
+      fields:
+      - name: supported_by
+        label: Grant line
+        widget: string
+      - name: logo
+        label: Logo
+        widget: image
+        required: false
+      - name: note
+        label: Credit line
+        widget: string
+        required: false
+      - name: links
+        label: Links
+        widget: list
+        summary: '{{fields.label}}'
+        fields:
+        - name: label
+          label: Link text
+          widget: string
+        - name: url
+          label: Address (https://…)
+          widget: string
+  - name: home
+    label: Home page
+    file: content/home.json
+    fields:
+    - name: eyebrow
+      label: Small line above the title
+      widget: string
+    - name: title
+      label: Big title
+      widget: string
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      name: intro
+      label: Opening paragraph
+    - name: dial_hint
+      label: Instruction under the felt / measured dial
+      widget: string
+    - name: pairs
+      label: Felt ↔ measured pairs (the dial)
+      hint: Each pair is an artwork and a science image. Drag to reorder; the first pair shows first.
+      widget: list
+      summary: '{{fields.felt_alt}} ↔ {{fields.measured_alt}}'
+      fields:
+      - name: felt
+        label: Felt — the artwork
+        widget: image
+      - name: felt_alt
+        label: Felt — short description (for screen readers)
+        widget: string
+      - name: felt_caption
+        label: Felt — caption
+        widget: text
+      - name: measured
+        label: Measured — the science image
+        widget: image
+        hint: Only a genuine, unedited science image. Art made on top of a micrograph is 'felt', not 'measured'.
+      - name: measured_alt
+        label: Measured — short description
+        widget: string
+      - name: measured_caption
+        label: Measured — caption
+        widget: text
+      - name: credit
+        label: Credit line
+        widget: string
+    - name: quote
+      label: Quotation
+      widget: text
+    - name: quote_source
+      label: Quotation — source
+      widget: string
+    - name: film
+      label: Film
+      widget: object
+      fields:
+      - name: show
+        label: Show the film
+        widget: boolean
+      - name: label
+        label: Small label
+        widget: string
+      - name: heading
+        label: Heading
+        widget: string
+      - name: youtube_id
+        label: YouTube video ID
+        widget: string
+        hint: The part after youtu.be/ — e.g. -f1EKmDwfkA
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        name: note
+        label: Note under the film
+  - name: exhibition
+    label: The exhibition (panels)
+    file: content/exhibition.json
+    fields:
+    - name: label
+      label: Small label
+      widget: string
+    - name: heading
+      label: Heading
+      widget: string
+    - name: intro
+      label: Introduction
+      widget: text
+    - name: panels
+      label: Panels
+      hint: Add, remove or drag panels to reorder.
+      widget: list
+      collapsed: true
+      summary: '{{fields.number}} · {{fields.title}}'
+      fields:
+      - name: number
+        label: Number
+        widget: string
+      - name: title
+        label: Title
+        widget: string
+      - name: science_tag
+        label: Science keywords (small magenta line)
+        widget: string
+      - name: text
+        label: Panel text
+        widget: text
+      - name: images
+        label: Images
+        widget: list
+        summary: '{{fields.caption}}'
+        fields:
+        - name: image
+          label: Image
+          widget: image
+        - name: caption
+          label: Caption
+          widget: string
+        - name: type
+          label: What kind of image is this?
+          widget: select
+          default: art
+          options:
+          - label: Artwork
+            value: art
+          - label: Science image (unedited micrograph, scan…)
+            value: science
+          - label: Art made on a science image
+            value: composite
+      - name: pair_images
+        label: Show artworks beside science images when enlarged
+        widget: boolean
+        default: false
+        hint: 1st artwork pairs with 1st science image, 2nd with 2nd…
+      - name: strip_label
+        label: Extra science strip — label
+        widget: string
+        required: false
+      - name: strip
+        label: Extra science strip — images
+        widget: list
+        required: false
+        summary: '{{fields.caption}}'
+        fields:
+        - name: image
+          label: Image
+          widget: image
+        - name: caption
+          label: Caption
+          widget: string
+        - name: type
+          label: What kind of image is this?
+          widget: select
+          default: art
+          options:
+          - label: Artwork
+            value: art
+          - label: Science image (unedited micrograph, scan…)
+            value: science
+          - label: Art made on a science image
+            value: composite
+      - name: links
+        label: Read-more links
+        widget: list
+        required: false
+        summary: '{{fields.label}}'
+        fields:
+        - name: label
+          label: Link text
+          widget: string
+        - name: url
+          label: Address
+          widget: string
+    - name: inroom
+      label: In the room
+      widget: object
+      collapsed: true
+      fields:
+      - name: show
+        label: Show this part
+        widget: boolean
+      - name: label
+        label: Label
+        widget: string
+      - name: text
+        label: Text
+        widget: text
+      - name: images
+        label: Images
+        widget: list
+        summary: '{{fields.caption}}'
+        fields:
+        - name: image
+          label: Image
+          widget: image
+        - name: caption
+          label: Caption
+          widget: string
+  - name: takepart
+    label: Take part (body map)
+    file: content/takepart.json
+    fields:
+    - name: label
+      label: Small label
+      widget: string
+    - name: heading
+      label: Heading
+      widget: string
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      name: intro
+      label: Introduction
+    - name: choose_label
+      label: Label above the images
+      widget: string
+    - name: choices
+      label: Images to choose from
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - name: image
+        label: Image
+        widget: image
+      - name: title
+        label: Title
+        widget: string
+      - name: words
+        label: Three words for what it feels like
+        widget: list
+        field:
+          name: word
+          label: Word
+          widget: string
+      - name: science
+        label: Science line shown after choosing
+        widget: text
+    - name: disclaimer
+      label: Disclaimer (keep this)
+      widget: text
+  - name: artists
+    label: Invited artists
+    file: content/artists.json
+    fields:
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      name: statement
+      label: Statement on the invited artists
+    - name: artists
+      label: Artists — each one gets their own room and menu tab
+      hint: To add an artist press 'Add artists', fill in the name and a one-word web address, and switch 'Show in menu' on.
+      widget: list
+      collapsed: true
+      summary: '{{fields.name}}'
+      fields:
+      - name: name
+        label: Artist's name
+        widget: string
+      - name: nav_label
+        label: Menu name
+        widget: string
+      - name: slug
+        label: Web address (one word, lowercase)
+        widget: string
+        pattern:
+        - ^[a-z0-9-]+$
+        - Lowercase letters, numbers and hyphens only
+      - name: show_in_nav
+        label: Show in menu
+        widget: boolean
+        default: true
+      - name: label
+        label: Small label
+        widget: string
+        default: Invited artist
+      - name: title
+        label: Room title
+        widget: string
+      - name: intro
+        label: Introduction
+        widget: text
+      - name: details
+        label: Medium · size · dates
+        widget: string
+        required: false
+      - name: coming_soon
+        label: Work still to come
+        widget: boolean
+        default: false
+      - name: coming_soon_text
+        label: Coming-soon message
+        widget: string
+        required: false
+      - name: sections
+        label: Sections of the room
+        widget: list
+        required: false
+        summary: '{{fields.label}}'
+        fields:
+        - name: label
+          label: Section heading
+          widget: string
+        - name: layout
+          label: Layout
+          widget: select
+          default: row
+          options:
+          - label: Row of images
+            value: row
+          - label: Book with magnifying lens
+            value: magnifier
+        - name: items
+          label: Images
+          widget: list
+          summary: '{{fields.caption}}'
+          fields:
+          - name: image
+            label: Image
+            widget: image
+          - name: caption
+            label: Caption
+            widget: text
+          - name: alt
+            label: Short description (for screen readers)
+            widget: string
+            required: false
+  - name: workshops
+    label: Workshops
+    file: content/workshops.json
+    fields:
+    - name: label
+      label: Small label
+      widget: string
+    - name: heading
+      label: Heading
+      widget: string
+    - name: intro
+      label: Introduction
+      widget: text
+    - name: workshops
+      label: Workshops
+      hint: Newest first reads best. Drag to reorder.
+      widget: list
+      collapsed: true
+      summary: '{{fields.title}} — {{fields.when}}'
+      fields:
+      - name: title
+        label: Title
+        widget: string
+      - name: when
+        label: Date and time
+        widget: string
+      - name: where
+        label: Venue, partners, facilitators
+        widget: text
+      - name: poster
+        label: Poster
+        widget: image
+        required: false
+      - name: poster_caption
+        label: Poster caption
+        widget: string
+        required: false
+      - widget: markdown
+        buttons:
+        - bold
+        - italic
+        - link
+        editor_components: []
+        modes:
+        - rich_text
+        - raw
+        name: description
+        label: Description
+      - name: prompts
+        label: Prompts
+        widget: list
+        required: false
+        summary: '{{fields.label}}'
+        fields:
+        - name: label
+          label: Label
+          widget: string
+        - name: text
+          label: Prompt
+          widget: text
+      - name: gallery_label
+        label: Gallery heading
+        widget: string
+        required: false
+      - name: gallery
+        label: Participant work and photographs
+        hint: Only publish participant work with their consent. Put the maker's name only if they asked to be named.
+        widget: list
+        required: false
+        summary: '{{fields.caption}}'
+        fields:
+        - name: image
+          label: Image
+          widget: image
+        - name: caption
+          label: Caption
+          widget: string
+        - name: maker
+          label: Made by (leave blank if not to be named)
+          widget: string
+          required: false
+      - name: credit
+        label: Credit line
+        widget: string
+        required: false
+    - name: consent_note
+      label: Consent note at the bottom
+      widget: text
+  - name: lineage
+    label: Lineage
+    file: content/lineage.json
+    fields:
+    - name: label
+      label: Small label
+      widget: string
+    - name: heading
+      label: Heading
+      widget: string
+    - name: intro
+      label: Introduction
+      widget: text
+    - name: cards
+      label: Works (linked, not reproduced)
+      widget: list
+      summary: '{{fields.title}} — {{fields.artist}}'
+      fields:
+      - name: title
+        label: Title
+        widget: string
+      - name: artist
+        label: Artist · date
+        widget: string
+      - name: text
+        label: Short text
+        widget: text
+      - name: link_label
+        label: Link text
+        widget: string
+      - name: url
+        label: Museum page address
+        widget: string
+    - name: essay_label
+      label: Essay heading
+      widget: string
+    - widget: markdown
+      buttons:
+      - bold
+      - italic
+      - link
+      editor_components: []
+      modes:
+      - rich_text
+      - raw
+      name: essay
+      label: Essay
+    - name: note
+      label: Note at the end
+      widget: text
+  - name: people
+    label: Contributors
+    file: content/people.json
+    fields:
+    - name: label
+      label: Small label
+      widget: string
+    - name: heading
+      label: Heading
+      widget: string
+    - name: people
+      label: People
+      widget: list
+      summary: '{{fields.name}} — {{fields.role}}'
+      fields:
+      - name: name
+        label: Name
+        widget: string
+      - name: role
+        label: Role
+        widget: string
+      - name: bio
+        label: Short bio
+        widget: text
+      - name: coming_soon
+        label: Shown faded (joining soon)
+        widget: boolean
+        default: false
+  - name: pages
+    label: Extra pages (add a new tab)
+    file: content/pages.json
+    fields:
+    - name: pages
+      label: Pages
+      hint: Each page becomes a tab. Build it from blocks — text, heading, image, gallery, quote, prompt, links, video.
+      widget: list
+      collapsed: true
+      summary: '{{fields.title}}'
+      fields:
+      - name: title
+        label: Page title
+        widget: string
+      - name: nav_label
+        label: Menu name
+        widget: string
+      - name: slug
+        label: Web address (one word, lowercase)
+        widget: string
+        pattern:
+        - ^[a-z0-9-]+$
+        - Lowercase letters, numbers and hyphens only
+      - name: show_in_nav
+        label: Show in menu
+        widget: boolean
+        default: true
+      - name: label
+        label: Small label above the title
+        widget: string
+        required: false
+      - name: blocks
+        label: Content blocks
+        widget: list
+        types:
+        - label: Text
+          name: text
+          widget: object
+          summary: Text
+          fields:
+          - widget: markdown
+            buttons:
+            - bold
+            - italic
+            - link
+            editor_components: []
+            modes:
+            - rich_text
+            - raw
+            name: body
+            label: Text
+        - label: Heading
+          name: heading
+          widget: object
+          summary: '{{fields.text}}'
+          fields:
+          - name: text
+            label: Heading
+            widget: string
+        - label: Image
+          name: image
+          widget: object
+          summary: '{{fields.caption}}'
+          fields:
+          - name: image
+            label: Image
+            widget: image
+          - name: caption
+            label: Caption
+            widget: string
+            required: false
+        - label: Gallery
+          name: gallery
+          widget: object
+          summary: '{{fields.heading}}'
+          fields:
+          - name: heading
+            label: Heading
+            widget: string
+            required: false
+          - name: items
+            label: Images
+            widget: list
+            summary: '{{fields.caption}}'
+            fields:
+            - name: image
+              label: Image
+              widget: image
+            - name: caption
+              label: Caption
+              widget: string
+            - name: maker
+              label: Made by
+              widget: string
+              required: false
+        - label: Quotation
+          name: quote
+          widget: object
+          summary: '{{fields.text}}'
+          fields:
+          - name: text
+            label: Quotation
+            widget: text
+          - name: source
+            label: Source
+            widget: string
+            required: false
+        - label: Prompt
+          name: prompt
+          widget: object
+          summary: '{{fields.label}}'
+          fields:
+          - name: label
+            label: Label
+            widget: string
+          - name: text
+            label: Prompt
+            widget: text
+        - label: Links
+          name: links
+          widget: object
+          summary: '{{fields.heading}}'
+          fields:
+          - name: heading
+            label: Heading
+            widget: string
+            required: false
+          - name: items
+            label: Links
+            widget: list
+            summary: '{{fields.label}}'
+            fields:
+            - name: label
+              label: Link text
+              widget: string
+            - name: url
+              label: Address
+              widget: string
+        - label: Video (YouTube)
+          name: video
+          widget: object
+          summary: '{{fields.caption}}'
+          fields:
+          - name: youtube_id
+            label: YouTube video ID
+            widget: string
+          - name: caption
+            label: Caption
+            widget: string
+            required: false

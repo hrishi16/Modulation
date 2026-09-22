@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Modulation — exploring the art and science of sensation</title>
+<meta name="description" content="A portal on the art and science of the senses, with a focus on pain.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Karla:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="preview" id="banner" hidden></div>
+
+<header class="bar">
+  <div class="wrap bar-in">
+    <a class="brand" href="#home" id="brand">Modulation</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu">Menu</button>
+    <nav class="tabs" id="tabs"></nav>
+  </div>
+</header>
+
+<main id="main">
+  <p class="loading wrap">Loading…</p>
+</main>
+
+<div class="shot" id="shot" hidden>
+  <div class="shot-bg" data-close></div>
+  <button class="shot-arrow shot-prev" id="shotPrev" aria-label="Previous">‹</button>
+  <button class="shot-arrow shot-next" id="shotNext" aria-label="Next">›</button>
+  <div class="shot-panel" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="shot-close" data-close aria-label="Close">×</button>
+    <div class="shot-imgs" id="shotImgs"></div>
+    <p class="shot-cap" id="shotCap"></p>
+  </div>
+</div>
+
+<footer id="footer"></footer>
+
+<script src="app.js"></script>
+</body>
+</html>

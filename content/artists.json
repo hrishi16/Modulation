@@ -1,0 +1,109 @@
+{
+  "statement": "Two visual artists, **Khushbu Patel** and **Manika K**, were invited to engage with the themes of sensation and pain, informed by insight from neuroscience. Their creations retain their artistic subjectivity and speculative imagination.",
+  "artists": [
+    {
+      "name": "Khushbu Patel",
+      "nav_label": "Diary Pages",
+      "slug": "diary",
+      "show_in_nav": true,
+      "label": "Invited artist",
+      "title": "Diary Pages — Khushbu Patel",
+      "intro": "This work takes the form of a diary — not to document events, but to trace the undercurrents of experience. Page by page it moves through quiet encounters: attraction, distance, touch, introspection. Some images slip into the surreal; others carry echoes of Indian miniature painting, where scale and detail compress complex emotion into small spaces.",
+      "details": "Untitled · watercolour on paper · 9 × 10 in · 2016–ongoing",
+      "coming_soon": false,
+      "sections": [
+        {
+          "label": "The object",
+          "layout": "row",
+          "items": [
+            {
+              "image": "images/book_cover.jpg",
+              "caption": "The book itself. Roughly the size of two open hands.",
+              "alt": "The diary's red cloth cover"
+            },
+            {
+              "image": "images/artist_work.jpg",
+              "caption": "Worked on by lamplight, one page at a time.",
+              "alt": "The artist working on a page by lamplight"
+            }
+          ]
+        },
+        {
+          "label": "Spreads — hover to look closer",
+          "layout": "magnifier",
+          "items": [
+            {
+              "image": "images/diary_recline.jpg",
+              "caption": "Olive-ochre and oxblood, the two colours the book keeps returning to.",
+              "alt": "Olive-ochre and oxblood, the two colours the book keeps returning to."
+            },
+            {
+              "image": "images/diary_fold.jpg",
+              "caption": "The fold is used as a wound. A red line runs down the binding gutter and blooms into a dark mark at the crease — the injury is in the binding, not the page.",
+              "alt": "The fold is used as a wound. A red line runs down the binding gutter and blooms into a dark mark at the crease — the injury is in the binding, not the page."
+            },
+            {
+              "image": "images/diary_legs.jpg",
+              "caption": "The same wound, drawn on the body itself this time.",
+              "alt": "The same wound, drawn on the body itself this time."
+            },
+            {
+              "image": "images/diary_seated2.jpg",
+              "caption": "A contour figure, a patterned mat, one wash of pink. Almost everything is bare paper.",
+              "alt": "A contour figure, a patterned mat, one wash of pink. Almost everything is bare paper."
+            },
+            {
+              "image": "images/diary_bird.jpg",
+              "caption": "A bird, a thorn branch, and a great deal of nothing.",
+              "alt": "A bird, a thorn branch, and a great deal of nothing."
+            },
+            {
+              "image": "images/diary_bloom.jpg",
+              "caption": "Green marks over a stain and a torn, re-laid edge.",
+              "alt": "Green marks over a stain and a torn, re-laid edge."
+            },
+            {
+              "image": "images/diary_berries.jpg",
+              "caption": "A scatter of small red marks, made to look grown rather than drawn.",
+              "alt": "A scatter of small red marks, made to look grown rather than drawn."
+            }
+          ]
+        },
+        {
+          "label": "Under magnification",
+          "layout": "row",
+          "items": [
+            {
+              "image": "images/loupe_hand.jpg",
+              "caption": "From the artist's own documentation: a loupe held over the page.",
+              "alt": "From the artist's own documentation: a loupe held over the page."
+            },
+            {
+              "image": "images/loupe_closeup.jpg",
+              "caption": "The marks are made to be too small — the reason the spreads above carry a working lens.",
+              "alt": "The marks are made to be too small — the reason the spreads above carry a working lens."
+            },
+            {
+              "image": "images/diary_contact.jpg",
+              "caption": "A working contact sheet, before individual spreads were shot.",
+              "alt": "A working contact sheet, before individual spreads were shot."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Manika K",
+      "nav_label": "Manika K",
+      "slug": "manika",
+      "show_in_nav": true,
+      "label": "Invited artist",
+      "title": "Manika K",
+      "intro": "Manika K was invited, alongside Khushbu Patel, to engage with the themes of sensation and pain informed by insight from neuroscience — her work retaining its own artistic subjectivity and speculative imagination.",
+      "details": "",
+      "coming_soon": true,
+      "coming_soon_text": "Manika’s work is in progress and will join this room shortly.",
+      "sections": []
+    }
+  ]
+}

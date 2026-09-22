@@ -1,0 +1,36 @@
+{
+  "label": "Contributors",
+  "heading": "Who made this",
+  "people": [
+    {
+      "name": "Asmita Sarkar",
+      "role": "Curator · lead artist",
+      "bio": "Artist-researcher and Associate Professor, Srishti Manipal Institute of Art, Design and Technology. Works on the phenomenology of embodiment and metaphor in contemporary painting.",
+      "coming_soon": false
+    },
+    {
+      "name": "Arnab Barik",
+      "role": "Neuroscientist",
+      "bio": "PI, Barik Lab, Centre for Neuroscience, IISc Bengaluru. Studies the neural circuits of pain and itch, and how stress, fear and hunger modulate pain.",
+      "coming_soon": false
+    },
+    {
+      "name": "Khushbu Patel",
+      "role": "Invited artist",
+      "bio": "Contributes the ongoing *Diary Pages* — pale, intimate, first-person watercolours, a durational counterpart to the exhibition's explanatory voice.",
+      "coming_soon": false
+    },
+    {
+      "name": "Manika K",
+      "role": "Invited artist · coming soon",
+      "bio": "Work joining shortly, engaging the themes of sensation and pain from her own speculative register.",
+      "coming_soon": true
+    },
+    {
+      "name": "Harsh Rathod",
+      "role": "Video & design",
+      "bio": "Video editing and design assistance · IISER Pune.",
+      "coming_soon": false
+    }
+  ]
+}

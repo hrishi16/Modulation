@@ -1,0 +1,208 @@
+{
+  "label": "Programme",
+  "heading": "Workshops",
+  "intro": "Workshops are where the argument of this portal is tested on other people. Each one pairs a scientist and an artist in the same room, opens a dialogue about subjective pain, and then asks participants to make something. What they make is part of the work, not documentation of it — shown here with their permission.",
+  "consent_note": "Participant work is shown with attribution and consent to publish, which is separate from consent to attend. Where a maker has asked not to be named, the work is credited to the workshop. To have a work removed or re-credited, write to the project.",
+  "workshops": [
+    {
+      "title": "Pain, Felt and Drawn",
+      "when": "Saturday 27 September · 1.30–3.30 pm",
+      "where": "Archives at NCBS, Bengaluru · MAHE × NCBS · facilitated by Arnab Barik (Centre for Neuroscience, IISc) and Asmita Sarkar (Srishti Manipal Institute, MAHE)",
+      "poster": "images/poster_ncbs.jpg",
+      "poster_caption": "Workshop poster · artwork by Asmita Sarkar",
+      "description": "A workshop on the art and science of pain and healing. The session brings together the scientific methods of studying pain and the artistic ways of representing it, in a talk by an artist–scientist duo that carries both art history and the history of science. It draws on material from the NCBS Archives — the neurobiologist K.S. Krishnan’s papers on conotoxins and their potential for pain relief, and his collection of cone-snail shells and drawings — to unpack the historical link between artistic drawing and early natural science. Open-ended dialogue about everyone’s own experience of bodily pain follows, and then participants sketch, paint or write.",
+      "prompts": [
+        {
+          "label": "Prompt · sensation from the shells",
+          "text": "Look at the beautiful shapes of the shells from the collection. Imagine you are walking on the beach collecting shells — how does it feel to touch them? Imagine your foot feeling the sand and the water. A sharp edge of a shell cuts your finger. How would that sensation look?"
+        },
+        {
+          "label": "Prompt · when you hear the word pain",
+          "text": "What comes to mind — mental pain, or physical? A sudden burst of pain, or a chronic, lingering one?"
+        },
+        {
+          "label": "Prompt · draw it",
+          "text": "Pick a paper and a medium and draw or paint something you think symbolises pain. You can think back to a specific moment in your life if you want to."
+        }
+      ],
+      "gallery_label": "In the room, and what was made",
+      "gallery": [
+        {
+          "image": "images/ws_1.jpg",
+          "caption": "Working on paper, spread over newspaper",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_2.jpg",
+          "caption": "Participant work in progress — oil pastel on dark ground",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_d1.jpg",
+          "caption": "Participant work — bands of red across the sheet",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_4.jpg",
+          "caption": "Participant work — a field of marks, worked wet",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_5.jpg",
+          "caption": "Participant work — filaments over a banded ground",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_6.jpg",
+          "caption": "Participant work — a shell at the centre of a red branching field",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_7.jpg",
+          "caption": "Painting in progress",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_8.jpg",
+          "caption": "Participant work — a dense red surface, close to skin",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_9.jpg",
+          "caption": "Participant work — cut and folded paper",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_d2.jpg",
+          "caption": "The table at work",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_d3.jpg",
+          "caption": "Participant work — drying on the table",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_d4.jpg",
+          "caption": "Two works side by side at the end of the session",
+          "maker": ""
+        },
+        {
+          "image": "images/ws_soma.jpg",
+          "caption": "Participant work — a spiral surrounded by falling drops",
+          "maker": "Soma Ghosh"
+        },
+        {
+          "image": "images/shell_1.jpg",
+          "caption": "Shell watercolour",
+          "maker": "Asmita Sarkar"
+        },
+        {
+          "image": "images/shell_3.jpg",
+          "caption": "Shell watercolour",
+          "maker": "Asmita Sarkar"
+        }
+      ],
+      "credit": "Participant works, shown with consent. Named where the maker asked to be named."
+    },
+    {
+      "title": "Climate Metaphors",
+      "when": "Workshop 25 April 2026 · 10.30 am – 12.30 pm",
+      "where": "Museum of Art & Photography (MAP), Bengaluru · show and workshare, 28 April – 5 March",
+      "poster": "images/poster_map.jpg",
+      "poster_caption": "MAP workshop poster · artwork by Asmita Sarkar",
+      "description": "This workshop extends Asmita Sarkar’s inquiry into the art and science of creative metaphor-making. Its point of departure is an art–science exploration with a sleep researcher at NCBS, Bengaluru: circadian, diurnal and circannual rhythms give metaphors that connect the molecular to the cosmic, and show how climate events run through human and more-than-human bodies. The metaphors made here — skin becomes landscape; the body resonating with the dying of land; sleep and waking as figures for pain and healing — sit close to Glenn Albrecht’s solastalgia, the homesickness you feel while still at home. Asmita shares the video and artworks made with scientists and researchers, then facilitates participants in building their own climate metaphors: meaning made out of a messy, nebulous problem with no simple resolution.",
+      "prompts": [
+        {
+          "label": "Prompt · body ↔ climate",
+          "text": "If climate change were a disorder of the body, what would it be — insomnia, inflammation, arrhythmia? Map a climate phenomenon onto a bodily sensation. Imagine the Earth has a nervous system: which signals are misfiring?"
+        },
+        {
+          "label": "Prompt · a metaphor that will not resolve",
+          "text": "Hold two incompatible ideas together — a burning ocean, a frozen fever, slow violence as sudden shock."
+        }
+      ],
+      "gallery_label": "From the same thread",
+      "gallery": [
+        {
+          "image": "images/rhythms.jpg",
+          "caption": "Rhythms",
+          "maker": "Asmita Sarkar"
+        },
+        {
+          "image": "images/climates.jpg",
+          "caption": "Climates",
+          "maker": "Asmita Sarkar"
+        }
+      ],
+      "credit": "Artworks by Asmita Sarkar."
+    },
+    {
+      "title": "Turning the Body Inside Out",
+      "when": "17 January 2026 · 10 am – 1 pm",
+      "where": "Srishti Manipal Institute of Art, Design and Technology, Bengaluru",
+      "poster": "images/poster_endo.jpg",
+      "poster_caption": "Workshop poster · artwork by Asmita Sarkar",
+      "description": "An embodied artistic exploration for individuals with endometriosis, on the theme of understanding bodily notions of the condition. The method here is body mapping — tracing and visually representing where a sensation sits, how it moves and what it is like — which holds quality, duration and meaning that a numeric scale cannot. It is facilitated with care: revisiting pain is emotionally taxing, and the session is built around that rather than around producing images.",
+      "prompts": [
+        {
+          "label": "Note on facilitation",
+          "text": "Nothing made in this room is a diagnosis or an assessment. Participants are co-creators, not subjects, and decide what, if anything, is shown afterwards."
+        }
+      ],
+      "gallery_label": "",
+      "gallery": [],
+      "credit": "Poster artwork by Asmita Sarkar. Participant work from this session is not published."
+    },
+    {
+      "title": "Between Science and Experience",
+      "when": "21 June 2026 · 4.00 – 5.30 pm",
+      "where": "Webinar · Alumni Association, Centre of Social Medicine and Community Health, Jawaharlal Nehru University · moderator Dr Archana Diwate (TISS Mumbai) · discussant Dr Mahesh Ganesan (IGNOU)",
+      "poster": "images/poster_jnu.jpg",
+      "poster_caption": "Webinar poster · background image by Asmita Sarkar",
+      "description": "A talk on art-based methodologies in public health: how arts-based research meets scientific and social-science approaches to health, drawing on the projects on sleep, pain and illness, and using phenomenology to study embodied experience through creative expression. The argument turns on creative metaphor as a research instrument, and on how people at the margins of a health system can use art to reclaim agency, build their own narratives of illness, and make room for empathy and social connection.",
+      "prompts": [
+        {
+          "label": "The distinction the talk rests on",
+          "text": "The body-as-object is measured clinically; the lived body is the one you are. Illness and pain disrupt the body’s ordinary transparency — which moves the question from “what is wrong?” to “how is this lived, and what supports a life?”"
+        }
+      ],
+      "gallery_label": "",
+      "gallery": [],
+      "credit": "Background image by Asmita Sarkar."
+    },
+    {
+      "title": "India Science Festival — the pilot",
+      "when": "2024",
+      "where": "IISER Pune · supported by a small grant from FAST India",
+      "poster": "",
+      "poster_caption": "",
+      "description": "Before the current seed grant, two workshops and a first series of artworks were made for the India Science Festival with the Barik Lab. That pilot produced the film and much of the work that the six panels were later built from.",
+      "prompts": [],
+      "gallery_label": "From the pilot",
+      "gallery": [
+        {
+          "image": "images/pain_in_the_brain.jpg",
+          "caption": "Pain in the Brain",
+          "maker": "Asmita Sarkar"
+        },
+        {
+          "image": "images/chronic.jpg",
+          "caption": "Chronic",
+          "maker": "Asmita Sarkar"
+        },
+        {
+          "image": "images/in_blue.jpg",
+          "caption": "In Blue",
+          "maker": "Asmita Sarkar"
+        },
+        {
+          "image": "images/healing_touches.jpg",
+          "caption": "Healing Touches",
+          "maker": "Asmita Sarkar"
+        }
+      ],
+      "credit": "Artworks by Asmita Sarkar · film by Harsh Rathod."
+    }
+  ]
+}
