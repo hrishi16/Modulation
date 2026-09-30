@@ -10,7 +10,7 @@ const C = {};
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 function mdi(s){
   return esc(s)
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|#[\w-]+)\)/g,(m,t,u)=>`<a href="${u}"${u[0]==='#'?'':' target="_blank" rel="noopener"'}>${t}</a>`)
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+|mailto:[^)\s]+|#[\w-]+)\)/g,(m,t,u)=>`<a href="${u}"${u.startsWith('mailto:')||u[0]==='#'?'':' target="_blank" rel="noopener"'}>${t}</a>`)
     .replace(/\*\*([^*]+)\*\*/g,'<b>$1</b>')
     .replace(/\*([^*]+)\*/g,'<em>$1</em>');
 }
@@ -130,7 +130,8 @@ function buildExhibition(x){
 function wireExhibition(x){
   const panels=arr(x.panels);
   const bar=document.getElementById('panelbar'),wrap=document.getElementById('panels');
-  function show(i){[...bar.children].forEach((b,j)=>b.setAttribute('aria-current',j===i));[...wrap.children].forEach((d,j)=>d.classList.toggle('active',j===i));}
+  function show(i){[...bar.children].forEach((b,j)=>b.setAttribute('aria-current',j===i));[...wrap.children].forEach((d,j)=>d.classList.toggle('active',j===i));bar.scrollIntoView({block:'start',behavior:'smooth'});}
+  window.__gotoPanel=show;
   bar.addEventListener('click',e=>{const b=e.target.closest('[data-panel]');if(b)show(+b.dataset.panel);});
   /* one continuous slideshow through every panel; images paired in a panel are shown side by side */
   const slides=[];
@@ -156,47 +157,152 @@ function wireExhibition(x){
 }
 
 function buildTakepart(t){
+  const details=arr(t.details), groups=arr(t.word_groups);
+  const detailBtns=details.map((d,i)=>`<button class="detbtn" data-detail="${i}" aria-label="Choose this detail">
+      <span class="detface detface-front"><img src="${esc(d.image)}" alt="Detail, unidentified"></span>
+      <span class="detface detface-back"><img src="${esc(d.full_image)}" alt="${esc(d.title)}"><span class="detname">${esc(d.title)}</span></span>
+    </button>`).join('');
+  const groupsHTML=groups.map((g,gi)=>`<div class="wordrow"><span class="wordrow-l">${esc(g.label)}</span><div class="wordchips">${arr(g.words).map((w,wi)=>`<button class="chip" data-word="${gi}:${wi}" aria-pressed="false">${esc(w)}</button>`).join('')}</div></div>`).join('');
   return `<section class="block"><div class="wrap">
     ${head(t.label,t.heading)}
-    <p class="measure dim" style="margin-top:-1rem;margin-bottom:2rem">${mdi(t.intro)}</p>
-    <div class="takepart">
-      <div class="bodycard">
-        <svg class="bodysvg" viewBox="0 0 200 380" role="group" aria-label="Body map">
-          <circle class="zone" data-zone="head" cx="100" cy="34" r="24"/>
-          <rect class="zone" data-zone="chest" x="70" y="64" width="60" height="70" rx="12"/>
-          <rect class="zone" data-zone="arms" x="34" y="70" width="26" height="96" rx="12"/>
-          <rect class="zone" data-zone="arms2" x="140" y="70" width="26" height="96" rx="12"/>
-          <rect class="zone" data-zone="abdomen" x="74" y="140" width="52" height="60" rx="12"/>
-          <rect class="zone" data-zone="legs" x="72" y="206" width="24" height="150" rx="12"/>
-          <rect class="zone" data-zone="legs2" x="104" y="206" width="24" height="150" rx="12"/>
-        </svg>
-        <p class="dim" style="font-size:.8rem;margin:.6rem 0 0">Tap the regions where it sits.</p>
+    <p class="measure dim" style="margin-top:-1rem;margin-bottom:.6rem">${mdi(t.intro)}</p>
+    <p class="nodiag" style="margin-top:0">${esc(t.disclaimer)}</p>
+
+    <div class="tp-step">
+      <span class="tp-num">01</span><span class="tp-label">${esc(t.step1_label)}</span>
+      <div class="tp-body">
+        <div class="bodycard">
+          <svg class="bodysvg" id="bodysvg" viewBox="0 0 200 400" role="img" aria-label="Body outline — tap to mark where a sensation sits">
+            <circle class="outline" cx="100" cy="34" r="26"/>
+            <path class="outline" d="M74,58 C74,52 126,52 126,58 L134,110 C136,150 128,170 100,172 C72,170 64,150 66,110 Z"/>
+            <path class="outline" d="M74,64 C50,72 38,100 40,150 M126,64 C150,72 162,100 160,150"/>
+            <path class="outline" d="M82,172 L78,270 L70,388 M118,172 L122,270 L130,388"/>
+            <line class="outline-foot" x1="60" y1="388" x2="80" y2="388"/>
+            <line class="outline-foot" x1="120" y1="388" x2="140" y2="388"/>
+          </svg>
+          <div class="marker" id="bodyMarker" hidden></div>
+          <p class="dim" style="font-size:.8rem;margin:.7rem 0 0">${esc(t.step1_hint)}</p>
+        </div>
       </div>
-      <div>
-        <p class="sci">${esc(t.choose_label)}</p>
-        <div class="choices" id="choices">${arr(t.choices).map((c,i)=>`<button class="choice" data-choice="${i}" aria-pressed="false"><img src="${esc(c.image)}" alt="${esc(c.title)}"><span>${arr(c.words).map(esc).join(' · ')}</span></button>`).join('')}</div>
-        <div class="readout" style="margin-top:1.4rem"><div class="composed" id="composed"></div><div class="sci-line" id="sciline"></div></div>
-        <button class="btn-reset" id="resetMap">Start again</button>
-        <p class="nodiag">${esc(t.disclaimer)}</p>
+    </div>
+
+    <div class="tp-step">
+      <span class="tp-num">02</span><span class="tp-label">${esc(t.step2_label)}</span><span class="tp-sub"> — ${esc(t.step2_sublabel)}</span>
+      <div class="detgrid" id="detgrid">${detailBtns}</div>
+      <p class="dim" style="font-size:.8rem;margin-top:.7rem">${mdi(t.step2_caption)}</p>
+    </div>
+
+    <div class="tp-step">
+      <span class="tp-num">03</span><span class="tp-label">${esc(t.step3_label)}</span><span class="tp-sub"> — ${esc(t.step3_sublabel)}</span>
+      ${groupsHTML}
+    </div>
+
+    <div class="tp-out" id="tpOut">
+      <p class="tp-status" id="tpStatus"></p>
+      <p class="tp-sentence" id="tpSentence" hidden></p>
+      <div class="tp-actions">
+        <button class="tp-cta" id="tpGoPanel" disabled>${esc(t.cta_panel)}</button>
+        <button class="tp-reset" id="tpReset">${esc(t.cta_reset)}</button>
       </div>
-    </div></div></section>`;
+    </div>
+  </div></section>`;
 }
 function wireTakepart(t){
-  const choices=arr(t.choices),zones=new Set();let picked=null;
-  const W={head:'the head',chest:'the chest',arms:'an arm',arms2:'an arm',abdomen:'the belly',legs:'a leg',legs2:'a leg'};
-  const out=document.getElementById('composed'),sci=document.getElementById('sciline'),cw=document.getElementById('choices');
-  function compose(){
-    if(!zones.size&&picked===null){out.textContent='Mark a place on the body, and pick an image — your sentence forms here.';sci.textContent='';return;}
-    const places=[...new Set([...zones].map(z=>W[z]))];const place=places.length?places.slice(0,2).join(' and '):'somewhere unnamed';
-    if(picked===null){out.textContent=`It sits in ${place}. Now choose the image nearest to what it’s like.`;sci.textContent='';return;}
-    const c=choices[picked],w=arr(c.words);
-    out.innerHTML=`It sits in <b>${esc(place)}</b> — and it is ${w.map(x=>`<b>${esc(x)}</b>`).join(', ')}.`;sci.textContent=c.science||'';
+  const details=arr(t.details), groups=arr(t.word_groups), templates=arr(t.sentence_templates);
+  const svg=document.getElementById('bodysvg'), marker=document.getElementById('bodyMarker'), card=svg.closest('.bodycard');
+  const grid=document.getElementById('detgrid'), status=document.getElementById('tpStatus'),
+        sentenceEl=document.getElementById('tpSentence'), goBtn=document.getElementById('tpGoPanel'), resetBtn=document.getElementById('tpReset');
+
+  let point=null, detailIdx=null, words=[]; // words: [{gi,wi,text}]
+
+  function regionFor(x,y){
+    const dx=Math.abs(x-100);
+    if(y<62) return 'the head';
+    if(y>=62 && y<178){ return dx>34 ? 'an arm' : (y<118?'the chest':'the belly'); }
+    return 'a leg';
   }
-  document.querySelectorAll('#route-takepart .zone').forEach(z=>z.addEventListener('click',()=>{z.classList.toggle('on');z.classList.contains('on')?zones.add(z.dataset.zone):zones.delete(z.dataset.zone);compose();}));
-  cw.addEventListener('click',e=>{const b=e.target.closest('[data-choice]');if(!b)return;picked=+b.dataset.choice;[...cw.children].forEach((x,j)=>x.setAttribute('aria-pressed',j===picked));compose();});
-  document.getElementById('resetMap').addEventListener('click',()=>{zones.clear();picked=null;document.querySelectorAll('#route-takepart .zone.on').forEach(z=>z.classList.remove('on'));[...cw.children].forEach(x=>x.setAttribute('aria-pressed','false'));compose();});
-  compose();
+  function placeMarker(x,y){
+    const pt=svg.createSVGPoint(); pt.x=x; pt.y=y;
+    const screen=pt.matrixTransform(svg.getScreenCTM());
+    const r=card.getBoundingClientRect();
+    marker.style.left=(screen.x-r.left)+'px'; marker.style.top=(screen.y-r.top)+'px';
+    marker.hidden=false;
+  }
+  svg.addEventListener('click',e=>{
+    const pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
+    const loc=pt.matrixTransform(svg.getScreenCTM().inverse());
+    if(point && Math.hypot(loc.x-point.x,loc.y-point.y)<14){ point=null; marker.hidden=true; update(); return; }
+    point={x:loc.x,y:loc.y,region:regionFor(loc.x,loc.y)};
+    placeMarker(loc.x,loc.y);
+    update();
+  });
+
+  grid.addEventListener('click',e=>{
+    const b=e.target.closest('[data-detail]'); if(!b) return;
+    const i=+b.dataset.detail;
+    detailIdx = detailIdx===i ? null : i;
+    [...grid.children].forEach((el,j)=>el.classList.toggle('revealed', j===detailIdx));
+    update();
+  });
+
+  document.querySelectorAll('.wordrow').forEach(row=>{
+    row.addEventListener('click',e=>{
+      const b=e.target.closest('[data-word]'); if(!b) return;
+      const [gi,wi]=b.dataset.word.split(':').map(Number);
+      const idx=words.findIndex(w=>w.gi===gi&&w.wi===wi);
+      if(idx>-1){ words.splice(idx,1); b.setAttribute('aria-pressed','false'); }
+      else{
+        if(words.length>=3) return;
+        words.push({gi,wi,text:groups[gi].words[wi]});
+        b.setAttribute('aria-pressed','true');
+      }
+      document.querySelectorAll('.chip').forEach(c=>{
+        const [cgi,cwi]=c.dataset.word.split(':').map(Number);
+        const active=words.some(w=>w.gi===cgi&&w.wi===cwi);
+        c.classList.toggle('maxed', !active && words.length>=3);
+      });
+      update();
+    });
+  });
+
+  function hashPick(str,n){let h=0;for(let i=0;i<str.length;i++){h=(h*31+str.charCodeAt(i))|0;}return Math.abs(h)%n;}
+
+  function update(){
+    const missing=[];
+    if(!point) missing.push(t.status_body);
+    if(detailIdx===null) missing.push(t.status_detail);
+    if(!words.length) missing.push(t.status_word);
+    if(missing.length){
+      status.textContent=`${t.status_prefix} ${missing.join(', ')}.`;
+      sentenceEl.hidden=true; goBtn.disabled=true;
+      return;
+    }
+    status.textContent=t.status_complete;
+    const d=details[detailIdx];
+    const wordText=words.map(w=>w.text).join(', ');
+    const region=point.region, regionCap=region.charAt(0).toUpperCase()+region.slice(1);
+    const key=region+'|'+d.title+'|'+wordText;
+    const tpl=templates[hashPick(key,templates.length)];
+    const sentence=tpl.replace('{region_cap}',regionCap).replace('{region}',region).replace('{theme}',d.theme).replace('{words}',wordText);
+    sentenceEl.textContent=sentence; sentenceEl.hidden=false;
+    goBtn.disabled=false; goBtn.dataset.panel=d.panel_index;
+  }
+
+  goBtn.addEventListener('click',()=>{
+    const p=+goBtn.dataset.panel;
+    location.hash='exhibition';
+    setTimeout(()=>{ if(window.__gotoPanel) window.__gotoPanel(p); },60);
+  });
+  resetBtn.addEventListener('click',()=>{
+    point=null; detailIdx=null; words=[];
+    marker.hidden=true;
+    [...grid.children].forEach(el=>el.classList.remove('revealed'));
+    document.querySelectorAll('.chip').forEach(c=>{c.setAttribute('aria-pressed','false');c.classList.remove('maxed');});
+    update();
+  });
+  update();
 }
+
 
 function buildArtist(a,statement,others){
   const secs=arr(a.sections).map((s,si)=>{
@@ -206,7 +312,7 @@ function buildArtist(a,statement,others){
   }).join('');
   return `<section class="block"><div class="wrap">
     ${head(a.label,a.title||a.name)}
-    <div class="diary-intro serif-lead">${mdi(a.intro)}${a.details?`<p class="dim" style="font-size:1rem;margin-top:1rem;font-family:var(--body);font-style:normal">${esc(a.details)}</p>`:''}</div>
+    <div class="diary-intro serif-lead">${md(a.intro)}${a.details?`<p class="dim" style="font-size:1rem;margin-top:1rem;font-family:var(--body);font-style:normal">${esc(a.details)}</p>`:''}</div>
     ${secs}
     ${a.coming_soon?`<div class="statement" style="margin-top:2rem"><p class="sci" style="color:var(--paper-dim)">Coming soon</p><p style="margin:0">${mdi(a.coming_soon_text||'')}</p></div>`:''}
     ${statement?`<div class="statement"><p class="sci" style="color:var(--paper-dim)">On the invited artists</p><p style="margin:0">${mdi(statement)}</p>

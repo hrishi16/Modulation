@@ -93,17 +93,67 @@
       ]
     },
     {
-      "name": "Manika K",
+      "name": "Manika Kumari",
       "nav_label": "Manika K",
       "slug": "manika",
       "show_in_nav": true,
       "label": "Invited artist",
-      "title": "Manika K",
-      "intro": "Manika K was invited, alongside Khushbu Patel, to engage with the themes of sensation and pain informed by insight from neuroscience — her work retaining its own artistic subjectivity and speculative imagination.",
-      "details": "",
-      "coming_soon": true,
-      "coming_soon_text": "Manika’s work is in progress and will join this room shortly.",
-      "sections": []
+      "title": "Manika Kumari",
+      "intro": "This work treats the body as a vessel for memory it cannot fully discharge — wrinkles, freckles, scars, sutures read as a trace left by experience that the mind has moved on from but the surface hasn't. Studies of skin in charcoal and pencil sit alongside a more speculative thread: a kinetic structure, still in concept, meant to enact how an unprocessed emotion changes shape as it passes from one body to the next — what breaks, what thickens, what residue it leaves behind.\n\nContact: [kmanika003@gmail.com](mailto:kmanika003@gmail.com)",
+      "details": "Charcoal and pencil, mostly on tinted paper · 2023–ongoing",
+      "coming_soon": false,
+      "coming_soon_text": "",
+      "sections": [
+        {
+          "label": "Temporalities, 2023",
+          "layout": "row",
+          "items": [
+            {
+              "image": "images/temporalities.jpg",
+              "caption": "Temporalities, 2023 · charcoal & pencil, varied size. The body as a vessel for memory and trauma it cannot detach from — wrinkles, freckles and scars read as the trail aging and experience leave on the surface.",
+              "alt": "Charcoal drawing of deep folded skin texture, titled Temporalities"
+            }
+          ]
+        },
+        {
+          "label": "Two studies",
+          "layout": "row",
+          "items": [
+            {
+              "image": "images/study_left.jpg",
+              "caption": "Untitled · 11.8 × 7.8 in · charcoal on tinted sheet",
+              "alt": "Charcoal study of a folded skin surface on tinted paper"
+            },
+            {
+              "image": "images/study_right.jpg",
+              "caption": "Untitled · 9.2 × 5 in · charcoal on tinted sheet — moles and marks scattered across a textured ground",
+              "alt": "Charcoal study of scattered moles and marks on tinted paper"
+            }
+          ]
+        },
+        {
+          "label": "Towards a kinetic structure — a working note",
+          "layout": "row",
+          "items": [
+            {
+              "image": "images/process_note.jpg",
+              "caption": "How does an unprocessed emotion move from one body to another? What shape does it take, what is added to it, and what changes when it's finally processed — sketched here as vessels that hold emotion in lines, breaking or thickening with each experience added to a life. The plan is a kinetic structure that changes form as it moves, documenting whatever residue it leaves.",
+              "alt": "Working sketch of looping vessel-like lines with a handwritten note on a sticky note, notes towards a kinetic structure"
+            }
+          ]
+        },
+        {
+          "label": "Studies — charcoal and pencil on tinted paper",
+          "layout": "row",
+          "items": [
+            {
+              "image": "images/studies_sheet.jpg",
+              "caption": "A working sheet of studies of skin — folds, scars, sutures, freckling — the material this room's larger pieces are drawn from.",
+              "alt": "Contact sheet of many small charcoal studies of skin texture"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

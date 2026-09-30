@@ -1,59 +1,121 @@
 {
   "label": "Take part",
-  "heading": "Where is it, and what is it like?",
-  "intro": "Pain has no number that fits it. This is built on **body mapping** — mark where a sensation sits, then choose the image nearest to what it feels like. You compose a sentence; nothing here is stored.",
-  "choose_label": "Choose the one nearest to it",
-  "disclaimer": "A communication aid, not a diagnosis. If pain is affecting you, speak to a clinician.",
-  "choices": [
+  "heading": "Where is yours, and what is it like?",
+  "intro": "Body mapping asks where a sensation sits, how it behaves, and what it is nearest to. You will be shown eight details cut from paintings, without titles. Choose the one closest to your own sensation and the painting it came from will be revealed, along with where it sits in the exhibition.",
+  "disclaimer": "Nothing here is stored or sent anywhere. It is a way of describing, not a way of measuring, and it is not a diagnosis or medical advice.",
+  "step1_label": "Where is it",
+  "step1_hint": "Tap anywhere on the outline. Tap again to clear.",
+  "step2_label": "Which of these is nearest",
+  "step2_sublabel": "details only, no titles",
+  "step2_caption": "Details from paintings by Asmita Sarkar. You are not meant to recognise them yet.",
+  "step3_label": "And how does it behave",
+  "step3_sublabel": "up to three, from any of the rows",
+  "word_groups": [
     {
-      "image": "images/that_sinking_feeling.jpg",
-      "title": "That Sinking Feeling",
+      "label": "How it feels",
       "words": [
-        "heavy",
-        "pulling",
-        "slow"
-      ],
-      "science": "Anxiety and depression often travel with chronic pain; the encoding regions interact."
-    },
-    {
-      "image": "images/chronic.jpg",
-      "title": "Chronic",
-      "words": [
-        "dull",
-        "constant",
-        "worn"
-      ],
-      "science": "When pain outlasts its cause it becomes pathological — and hard to treat."
-    },
-    {
-      "image": "images/fleur_du_mal.jpg",
-      "title": "Fleur du Mal",
-      "words": [
+        "tight",
+        "burning",
+        "aching",
         "sharp",
-        "blooming",
-        "bright"
-      ],
-      "science": "The poppy, Papaver somniferum, and the body’s own opioids sit behind this bloom."
-    },
-    {
-      "image": "images/in_blue.jpg",
-      "title": "In Blue",
-      "words": [
+        "prickling",
+        "heavy",
         "cold",
-        "quiet",
-        "distant"
-      ],
-      "science": "Relieving pain often does not relieve the anxiety bound up with it."
+        "raw"
+      ]
     },
     {
-      "image": "images/rewiring.jpg",
-      "title": "Rewiring",
+      "label": "How it moves",
       "words": [
-        "electric",
-        "branching",
-        "restless"
-      ],
-      "science": "Cutaneous receptors and their nerves carry both touch and its disruption."
+        "pulsing",
+        "steady",
+        "sudden",
+        "creeping",
+        "spreading",
+        "coming and going"
+      ]
+    },
+    {
+      "label": "What it does",
+      "words": [
+        "exhausting",
+        "frightening",
+        "dulling",
+        "relentless",
+        "distant"
+      ]
     }
-  ]
+  ],
+  "details": [
+    {
+      "image": "images/detail/towards_heaven.jpg",
+      "full_image": "images/towards_heaven.jpg",
+      "title": "Towards Heaven",
+      "panel_index": 0,
+      "theme": "a body given over to sensation"
+    },
+    {
+      "image": "images/detail/pain_in_the_brain.jpg",
+      "full_image": "images/pain_in_the_brain.jpg",
+      "title": "Pain in the Brain",
+      "panel_index": 1,
+      "theme": "a signal turning over in the brain"
+    },
+    {
+      "image": "images/detail/fleur_du_mal.jpg",
+      "full_image": "images/fleur_du_mal.jpg",
+      "title": "Fleur du Mal",
+      "panel_index": 2,
+      "theme": "something blooming against the dark"
+    },
+    {
+      "image": "images/detail/pushing_through.jpg",
+      "full_image": "images/pushing_through.jpg",
+      "title": "Pushing Through",
+      "panel_index": 3,
+      "theme": "a body carrying on regardless"
+    },
+    {
+      "image": "images/detail/chronic.jpg",
+      "full_image": "images/chronic.jpg",
+      "title": "Chronic",
+      "panel_index": 3,
+      "theme": "a weather that has stopped passing"
+    },
+    {
+      "image": "images/detail/that_sinking_feeling.jpg",
+      "full_image": "images/that_sinking_feeling.jpg",
+      "title": "That Sinking Feeling",
+      "panel_index": 4,
+      "theme": "a heaviness pulling from below"
+    },
+    {
+      "image": "images/detail/healing_touches.jpg",
+      "full_image": "images/healing_touches.jpg",
+      "title": "Healing Touches",
+      "panel_index": 5,
+      "theme": "a wave breaking into roots"
+    },
+    {
+      "image": "images/detail/rewiring.jpg",
+      "full_image": "images/rewiring.jpg",
+      "title": "Rewiring",
+      "panel_index": 5,
+      "theme": "a circuit finding a new path"
+    }
+  ],
+  "sentence_templates": [
+    "In {region}, {theme} — {words}.",
+    "{region_cap} holds it: {theme}, and it is {words}.",
+    "Something {theme} in {region}. It is {words}.",
+    "Where {region} meets the page: {theme}, {words}.",
+    "{region_cap}, and {theme} — {words}, if a word will hold it."
+  ],
+  "cta_panel": "Take me to that panel",
+  "cta_reset": "Start again",
+  "status_prefix": "Still to choose:",
+  "status_body": "a place on the body",
+  "status_detail": "a detail",
+  "status_word": "a word",
+  "status_complete": "A place on the body, a detail, and a word — all three chosen."
 }
