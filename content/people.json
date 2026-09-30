@@ -31,6 +31,12 @@
       "role": "Video & design",
       "bio": "Video editing and design assistance · IISER Pune.",
       "coming_soon": false
+    },
+    {
+      "coming_soon": false,
+      "name": "Hrishikesh Nambisan",
+      "role": "Sci-Art Consultation and Website Development",
+      "bio": "Interested in the intersection of science and art, with special interest in the neuroscience of aesthetics. Studied how animals keep track of time - \"time-cells\" -  in his PhD. "
     }
   ]
 }
