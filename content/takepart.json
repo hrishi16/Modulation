@@ -1,15 +1,16 @@
 {
   "label": "Take part",
   "heading": "Where is yours, and what is it like?",
-  "intro": "Body mapping asks where a sensation sits, how it behaves, and what it is nearest to. You will be shown eight details cut from paintings, without titles. Choose the one closest to your own sensation and the painting it came from will be revealed, along with where it sits in the exhibition.",
+  "intro": "A number from one to ten captures how much it hurts and loses everything else. Body mapping asks instead where a sensation sits and what it is like. Mark the place, then find the painting nearest to it — because someone has already tried to catch this, and there is science underneath it.",
   "disclaimer": "Nothing here is stored or sent anywhere. It is a way of describing, not a way of measuring, and it is not a diagnosis or medical advice.",
   "step1_label": "Where is it",
-  "step1_hint": "Tap anywhere on the outline. Tap again to clear.",
+  "step1_hint": "Tap the body where it sits. Tap again to clear.",
   "step2_label": "Which of these is nearest",
-  "step2_sublabel": "details only, no titles",
-  "step2_caption": "Details from paintings by Asmita Sarkar. You are not meant to recognise them yet.",
-  "step3_label": "And how does it behave",
-  "step3_sublabel": "up to three, from any of the rows",
+  "step2_sublabel": "details from paintings — no titles yet",
+  "step2_caption": "Eight details, drawn fresh each time from the works in the exhibition. You are not meant to recognise them.",
+  "step3_label": "And what is it like",
+  "step3_sublabel": "up to three words, from any row",
+  "pool_size": 8,
   "word_groups": [
     {
       "label": "How it feels",
@@ -21,7 +22,8 @@
         "prickling",
         "heavy",
         "cold",
-        "raw"
+        "raw",
+        "numb"
       ]
     },
     {
@@ -42,80 +44,100 @@
         "frightening",
         "dulling",
         "relentless",
-        "distant"
+        "distant",
+        "isolating"
       ]
     }
   ],
   "details": [
     {
-      "image": "images/detail/towards_heaven.jpg",
-      "full_image": "images/towards_heaven.jpg",
+      "detail": "images/detail/towards_heaven.jpg",
+      "full": "images/towards_heaven.jpg",
       "title": "Towards Heaven",
-      "panel_index": 0,
-      "theme": "a body given over to sensation"
+      "panel_index": 0
     },
     {
-      "image": "images/detail/pain_in_the_brain.jpg",
-      "full_image": "images/pain_in_the_brain.jpg",
+      "detail": "images/detail/touching.jpg",
+      "full": "images/touching.jpg",
+      "title": "Touching",
+      "panel_index": 0
+    },
+    {
+      "detail": "images/detail/pain_in_the_brain.jpg",
+      "full": "images/pain_in_the_brain.jpg",
       "title": "Pain in the Brain",
-      "panel_index": 1,
-      "theme": "a signal turning over in the brain"
+      "panel_index": 1
     },
     {
-      "image": "images/detail/fleur_du_mal.jpg",
-      "full_image": "images/fleur_du_mal.jpg",
-      "title": "Fleur du Mal",
-      "panel_index": 2,
-      "theme": "something blooming against the dark"
-    },
-    {
-      "image": "images/detail/pushing_through.jpg",
-      "full_image": "images/pushing_through.jpg",
-      "title": "Pushing Through",
-      "panel_index": 3,
-      "theme": "a body carrying on regardless"
-    },
-    {
-      "image": "images/detail/chronic.jpg",
-      "full_image": "images/chronic.jpg",
-      "title": "Chronic",
-      "panel_index": 3,
-      "theme": "a weather that has stopped passing"
-    },
-    {
-      "image": "images/detail/that_sinking_feeling.jpg",
-      "full_image": "images/that_sinking_feeling.jpg",
-      "title": "That Sinking Feeling",
-      "panel_index": 4,
-      "theme": "a heaviness pulling from below"
-    },
-    {
-      "image": "images/detail/healing_touches.jpg",
-      "full_image": "images/healing_touches.jpg",
-      "title": "Healing Touches",
-      "panel_index": 5,
-      "theme": "a wave breaking into roots"
-    },
-    {
-      "image": "images/detail/rewiring.jpg",
-      "full_image": "images/rewiring.jpg",
+      "detail": "images/detail/rewiring.jpg",
+      "full": "images/rewiring.jpg",
       "title": "Rewiring",
-      "panel_index": 5,
-      "theme": "a circuit finding a new path"
+      "panel_index": 1
+    },
+    {
+      "detail": "images/detail/rewired.jpg",
+      "full": "images/rewired.jpg",
+      "title": "Rewired",
+      "panel_index": 1
+    },
+    {
+      "detail": "images/detail/fleur_du_mal.jpg",
+      "full": "images/fleur_du_mal.jpg",
+      "title": "Fleur du Mal",
+      "panel_index": 2
+    },
+    {
+      "detail": "images/detail/flower_for_healing.jpg",
+      "full": "images/flower_for_healing.jpg",
+      "title": "A Flower for Healing",
+      "panel_index": 2
+    },
+    {
+      "detail": "images/detail/sweet_sorrow.jpg",
+      "full": "images/sweet_sorrow.jpg",
+      "title": "Sweet Sorrow",
+      "panel_index": 2
+    },
+    {
+      "detail": "images/detail/pushing_through.jpg",
+      "full": "images/pushing_through.jpg",
+      "title": "Pushing Through",
+      "panel_index": 3
+    },
+    {
+      "detail": "images/detail/chronic.jpg",
+      "full": "images/chronic.jpg",
+      "title": "Chronic",
+      "panel_index": 3
+    },
+    {
+      "detail": "images/detail/in_blue.jpg",
+      "full": "images/in_blue.jpg",
+      "title": "In Blue",
+      "panel_index": 4
+    },
+    {
+      "detail": "images/detail/that_sinking_feeling.jpg",
+      "full": "images/that_sinking_feeling.jpg",
+      "title": "That Sinking Feeling",
+      "panel_index": 4
+    },
+    {
+      "detail": "images/detail/healing_touches.jpg",
+      "full": "images/healing_touches.jpg",
+      "title": "Healing Touches",
+      "panel_index": 5
     }
   ],
-  "sentence_templates": [
-    "In {region}, {theme} — {words}.",
-    "{region_cap} holds it: {theme}, and it is {words}.",
-    "Something {theme} in {region}. It is {words}.",
-    "Where {region} meets the page: {theme}, {words}.",
-    "{region_cap}, and {theme} — {words}, if a word will hold it."
-  ],
-  "cta_panel": "Take me to that panel",
-  "cta_reset": "Start again",
+  "reveal_intro": "You chose:",
+  "reveal_science_label": "underneath it",
+  "reveal_words_label": "in your words",
+  "cta_panel": "See this in the exhibition",
+  "cta_reset": "Try another",
   "status_prefix": "Still to choose:",
   "status_body": "a place on the body",
   "status_detail": "a detail",
   "status_word": "a word",
-  "status_complete": "A place on the body, a detail, and a word — all three chosen."
+  "closing": "Whatever you chose, it is already here — held in someone's painting, and traced in the science beside it. That is the whole argument of this place: pain is subjective, and art reaches it where a number can't.",
+  "next_label": "Now make your own mark"
 }

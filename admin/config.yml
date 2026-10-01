@@ -102,6 +102,15 @@ collections:
       - name: show_takepart
         label: Show Take part
         widget: boolean
+      - name: makemark
+        label: Make a mark — menu name
+        widget: string
+        required: false
+      - name: show_makemark
+        label: Show Make a mark
+        widget: boolean
+        required: false
+        default: true
       - name: workshops
         label: Workshops — menu name
         widget: string
@@ -388,16 +397,23 @@ collections:
       label: Step 2 — small text after a dash
       widget: string
     - name: step2_caption
-      label: Caption under the eight details
+      label: Caption under the details
       widget: text
     - name: step3_label
-      label: 'Step 3 label (e.g. "And how does it behave")'
+      label: 'Step 3 label (e.g. "And what is it like")'
       widget: string
     - name: step3_sublabel
       label: Step 3 — small text after a dash
       widget: string
+    - name: pool_size
+      label: How many details to show at once
+      widget: number
+      value_type: int
+      min: 4
+      max: 12
+      hint: The details are drawn fresh from the pool below each time; this is how many appear at once.
     - name: word_groups
-      label: Word groups (up to 3 choices total, from any row)
+      label: Word groups (visitor picks up to 3 total, from any row)
       widget: list
       summary: '{{fields.label}}'
       fields:
@@ -409,15 +425,15 @@ collections:
         widget: list
         field: {name: word, label: Word, widget: string}
     - name: details
-      label: The eight mystery details
-      hint: Each is a close crop of a real painting. Keep the crop abstract enough that the source isn't obvious — avoid faces or anything too recognisable.
+      label: Detail pool — real painting crops
+      hint: Each entry is a close, abstract crop of a real painting plus the full painting it reveals. Keep the crop abstract enough that the source isn't obvious. Add as many as you like — the interactive shows a random handful each time.
       widget: list
       summary: '{{fields.title}}'
       fields:
-      - name: image
+      - name: detail
         label: Detail crop (the mystery image shown first)
         widget: image
-      - name: full_image
+      - name: full
         label: Full painting (revealed after choosing)
         widget: image
       - name: title
@@ -433,20 +449,26 @@ collections:
         - {label: '04 · Overcoming', value: 3}
         - {label: '05 · Anxiety and depression', value: 4}
         - {label: '06 · Tactile sensation', value: 5}
-      - name: theme
-        label: Theme phrase (used in the generated sentence, e.g. "a body given over to sensation")
-        widget: string
-    - name: sentence_templates
-      label: Sentence templates
-      hint: 'Use {region}, {region_cap}, {theme} and {words} as placeholders. One is picked automatically for each combination of answers.'
-      widget: list
-      field: {name: template, label: Template, widget: string}
+    - name: reveal_intro
+      label: 'Reveal — lead-in (e.g. "You chose:")'
+      widget: string
+    - name: reveal_science_label
+      label: 'Reveal — label above the science (e.g. "underneath it")'
+      widget: string
+    - name: reveal_words_label
+      label: 'Reveal — label for the visitor''s words (unused placeholder, safe to leave)'
+      widget: string
+      required: false
     - name: cta_panel
       label: Button — go to the matching panel
       widget: string
     - name: cta_reset
-      label: Button — start again
+      label: Button — shuffle and try again
       widget: string
+    - name: next_label
+      label: Button — go on to Make a mark (leave empty to hide)
+      widget: string
+      required: false
     - name: status_prefix
       label: 'Status line prefix (e.g. "Still to choose:")'
       widget: string
@@ -457,11 +479,178 @@ collections:
       label: Status word for the detail step
       widget: string
     - name: status_word
-      label: Status word for the descriptor step
+      label: Status word for the words step
       widget: string
-    - name: status_complete
-      label: Status line once all three are chosen
-      widget: string
+    - name: closing
+      label: Closing line under the interactive
+      widget: text
+      required: false
+  - name: makemark
+    label: Make a mark (drawing page)
+    file: content/makemark.json
+    fields:
+    - {name: label, label: Small label, widget: string}
+    - {name: heading, label: Heading, widget: string}
+    - name: intro
+      label: Introduction
+      widget: markdown
+      buttons: [bold, italic, link]
+      editor_components: []
+      modes: [rich_text, raw]
+    - {name: disclaimer, label: Line under the introduction, widget: string}
+    - {name: guide_label, label: Button — follow the workshop prompts, widget: string}
+    - {name: free_label, label: Button — draw freely, widget: string}
+    - name: steps
+      label: Workshop prompts (the guided path)
+      hint: These come from the Pain, Felt and Drawn workshop. Each step can suggest a few words and the Modulate tool. Suggestions are only highlighted, never forced.
+      widget: list
+      summary: '{{fields.title}}'
+      fields:
+      - {name: title, label: Step title, widget: string}
+      - {name: prompt, label: Prompt, widget: text}
+      - name: try
+        label: Suggested words (must match words in Take part)
+        widget: list
+        required: false
+        field: {name: word, label: Word, widget: string}
+      - {name: modulate, label: Suggest the Modulate tool, widget: boolean, required: false, default: false}
+    - {name: try_label, label: 'Word before the suggestions (e.g. "Try:")', widget: string}
+    - {name: back_label, label: Button — back, widget: string}
+    - {name: next_label, label: Button — next, widget: string}
+    - {name: guide_source, label: Credit line under the prompts, widget: text}
+    - {name: words_label, label: Heading above the word brushes, widget: string}
+    - name: palette
+      label: Colours
+      hint: Add as many as you like. On the dark paper the page switches away from very dark colours automatically.
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - {name: name, label: Colour name, widget: string}
+      - {name: hex, label: Colour, widget: color}
+    - name: grounds
+      label: Papers
+      widget: list
+      summary: '{{fields.name}}'
+      fields:
+      - {name: name, label: Paper name, widget: string}
+      - {name: hex, label: Base colour, widget: color}
+      - name: tex
+        label: Texture
+        widget: select
+        options:
+        - {label: Smooth paper with fine speckle, value: paper}
+        - {label: Tinted sheet with fibres, value: kraft}
+        - {label: Dark ground, value: dark}
+    - {name: colour_label, label: Heading above the colours, widget: string}
+    - {name: size_label, label: Heading above the size slider, widget: string}
+    - {name: paper_label, label: Heading above the papers, widget: string}
+    - {name: tools_label, label: Heading above Modulate and Lift, widget: string}
+    - {name: modulate_label, label: Modulate — button text, widget: string}
+    - {name: modulate_hint, label: Modulate — explanation shown when it is selected, widget: text}
+    - {name: lift_label, label: Lift — button text, widget: string}
+    - {name: lift_hint, label: Lift — explanation, widget: text}
+    - {name: title_placeholder, label: Placeholder in the naming box, widget: string}
+    - {name: untitled, label: Caption used on the saved image when unnamed, widget: string}
+    - {name: undo_label, label: Button — undo, widget: string}
+    - {name: clear_label, label: Button — clear, widget: string}
+    - {name: save_label, label: Button — save, widget: string}
+    - name: reflections
+      label: What your hand did
+      hint: The page counts which kind of words were used and shows one of these. The word rows in Take part are read in order - first row is feels, second is moves, third is does. Leave the panel and link empty for no button.
+      widget: object
+      fields:
+      - {name: title, label: Heading, widget: string}
+      - name: feels
+        label: Mostly "how it feels" (first word row)
+        widget: object
+        fields:
+        - {name: text, label: Text, widget: text}
+        - name: panel
+          label: Exhibition panel to link to
+          widget: select
+          required: false
+          options:
+          - {label: No link, value: ''}
+          - {label: '01 · Somatosensory system', value: 0}
+          - {label: '02 · Pain in the brain', value: 1}
+          - {label: '03 · Opioids / poppy', value: 2}
+          - {label: '04 · Overcoming', value: 3}
+          - {label: '05 · Anxiety and depression', value: 4}
+          - {label: '06 · Tactile sensation', value: 5}
+        - {name: link, label: Link text, widget: string, required: false}
+      - name: moves
+        label: Mostly "how it moves" (second word row)
+        widget: object
+        fields:
+        - {name: text, label: Text, widget: text}
+        - name: panel
+          label: Exhibition panel to link to
+          widget: select
+          required: false
+          options:
+          - {label: No link, value: ''}
+          - {label: '01 · Somatosensory system', value: 0}
+          - {label: '02 · Pain in the brain', value: 1}
+          - {label: '03 · Opioids / poppy', value: 2}
+          - {label: '04 · Overcoming', value: 3}
+          - {label: '05 · Anxiety and depression', value: 4}
+          - {label: '06 · Tactile sensation', value: 5}
+        - {name: link, label: Link text, widget: string, required: false}
+      - name: does
+        label: Mostly "what it does" (third word row)
+        widget: object
+        fields:
+        - {name: text, label: Text, widget: text}
+        - name: panel
+          label: Exhibition panel to link to
+          widget: select
+          required: false
+          options:
+          - {label: No link, value: ''}
+          - {label: '01 · Somatosensory system', value: 0}
+          - {label: '02 · Pain in the brain', value: 1}
+          - {label: '03 · Opioids / poppy', value: 2}
+          - {label: '04 · Overcoming', value: 3}
+          - {label: '05 · Anxiety and depression', value: 4}
+          - {label: '06 · Tactile sensation', value: 5}
+        - {name: link, label: Link text, widget: string, required: false}
+      - name: mixed
+        label: A mix of all three
+        widget: object
+        fields:
+        - {name: text, label: Text, widget: text}
+        - name: panel
+          label: Exhibition panel to link to
+          widget: select
+          required: false
+          options:
+          - {label: No link, value: ''}
+          - {label: '01 · Somatosensory system', value: 0}
+          - {label: '02 · Pain in the brain', value: 1}
+          - {label: '03 · Opioids / poppy', value: 2}
+          - {label: '04 · Overcoming', value: 3}
+          - {label: '05 · Anxiety and depression', value: 4}
+          - {label: '06 · Tactile sensation', value: 5}
+        - {name: link, label: Link text, widget: string, required: false}
+      - name: modulated
+        label: Added when the visitor used Modulate
+        widget: object
+        fields:
+        - {name: text, label: Text, widget: text}
+        - name: panel
+          label: Exhibition panel to link to
+          widget: select
+          required: false
+          options:
+          - {label: No link, value: ''}
+          - {label: '01 · Somatosensory system', value: 0}
+          - {label: '02 · Pain in the brain', value: 1}
+          - {label: '03 · Opioids / poppy', value: 2}
+          - {label: '04 · Overcoming', value: 3}
+          - {label: '05 · Anxiety and depression', value: 4}
+          - {label: '06 · Tactile sensation', value: 5}
+        - {name: link, label: Link text, widget: string, required: false}
+      - {name: takepart_link, label: Link text back to Take part, widget: string}
   - name: artists
     label: Invited artists
     file: content/artists.json

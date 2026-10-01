@@ -1,0 +1,146 @@
+{
+  "label": "Make a mark",
+  "heading": "Now make it",
+  "intro": "In the Pain, Felt and Drawn workshop, people were asked to imagine a day at the beach: picking up a shell, the sharp edge that cuts a finger, the pain, and the healing. This is that exercise, online. Every word from [Take part](#takepart) is a brush here. Choose a word and your hand makes it.",
+  "disclaimer": "Nothing you make here is stored or sent anywhere. Save it if you want to keep it.",
+  "guide_label": "Follow the workshop",
+  "free_label": "Just draw",
+  "try_label": "Try:",
+  "back_label": "Back",
+  "next_label": "Next",
+  "guide_source": "The prompts are from the Pain, Felt and Drawn workshop at the Archives at NCBS. Follow them or ignore them: the words and colours are yours.",
+  "steps": [
+    {
+      "title": "The touch",
+      "prompt": "You are walking along a beach, collecting shells. Feel one in your hand, and the sand and water under your foot. What does that sensation look like?",
+      "try": [
+        "steady",
+        "prickling",
+        "cold"
+      ],
+      "modulate": false
+    },
+    {
+      "title": "The cut",
+      "prompt": "The sharp edge of a shell cuts your finger. How would that sensation look?",
+      "try": [
+        "sharp",
+        "burning",
+        "sudden"
+      ],
+      "modulate": false
+    },
+    {
+      "title": "The pain, and the healing",
+      "prompt": "The pain stays for a while, and then there is healing. What softens, and what stays? You can blend what you made, or leave it as a scar.",
+      "try": [
+        "aching",
+        "creeping",
+        "spreading"
+      ],
+      "modulate": true
+    }
+  ],
+  "words_label": "Words as brushes",
+  "tools_label": "Or work on what is there",
+  "modulate_label": "Modulate",
+  "modulate_hint": "Modulate — blends and softens what you have already made. It is the word neuroscience uses for turning pain down, and the word painters use for smoothing a hard edge.",
+  "lift_label": "Lift",
+  "lift_hint": "Lift — takes the colour back off, down to the paper.",
+  "colour_label": "Colour",
+  "size_label": "Size",
+  "paper_label": "Paper",
+  "palette": [
+    {
+      "name": "Oxblood",
+      "hex": "#7a2530"
+    },
+    {
+      "name": "Scarlet",
+      "hex": "#c0392b"
+    },
+    {
+      "name": "Rust",
+      "hex": "#a8531f"
+    },
+    {
+      "name": "Ochre",
+      "hex": "#c98a3e"
+    },
+    {
+      "name": "Sap green",
+      "hex": "#6f8a4a"
+    },
+    {
+      "name": "Teal",
+      "hex": "#2f7f86"
+    },
+    {
+      "name": "Indigo",
+      "hex": "#34437a"
+    },
+    {
+      "name": "Violet",
+      "hex": "#6b4a8a"
+    },
+    {
+      "name": "Ink",
+      "hex": "#17141a"
+    },
+    {
+      "name": "Bone",
+      "hex": "#e9e1d0"
+    }
+  ],
+  "grounds": [
+    {
+      "name": "Bare paper",
+      "hex": "#f1ece1",
+      "tex": "paper"
+    },
+    {
+      "name": "Tinted sheet",
+      "hex": "#b79a74",
+      "tex": "kraft"
+    },
+    {
+      "name": "Dark ground",
+      "hex": "#15110f",
+      "tex": "dark"
+    }
+  ],
+  "title_placeholder": "Name it (optional)",
+  "untitled": "Untitled mark",
+  "undo_label": "Undo",
+  "clear_label": "Clear",
+  "save_label": "Save as image",
+  "reflections": {
+    "title": "What your hand did",
+    "feels": {
+      "text": "Most of what you made is about **how it feels on the body**: pressure, heat, cold, the skin's own reading of the world. That is the territory of the somatosensory system, which responds to the most diverse set of stimuli in the body: mechanical, thermal and chemical.",
+      "panel": 0,
+      "link": "See the somatosensory system"
+    },
+    "moves": {
+      "text": "Most of what you made is about **how it moves**: whether it pulses, creeps or comes and goes. How a sensation changes over time is one of the things body mapping exists to capture, and a number from one to ten cannot.",
+      "panel": "",
+      "link": ""
+    },
+    "does": {
+      "text": "Most of what you made is about **what it does to you**, not only how it feels. The exhibition note calls this the emotional burden of pain: substantial, and the part most treatments are not designed to address.",
+      "panel": 4,
+      "link": "See anxiety and depression"
+    },
+    "mixed": {
+      "text": "Your marks cover how it feels, how it moves and what it does to you. That is the whole of it, and exactly what a number from one to ten leaves out.",
+      "panel": "",
+      "link": ""
+    },
+    "modulated": {
+      "text": "You also softened what you made. *Modulating* is the word neuroscience textbooks use for turning pain down. In painting, it means blending a rough edge into its surroundings.",
+      "panel": 1,
+      "link": "See pain in the brain"
+    },
+    "takepart_link": "Find your sensation in a painting"
+  }
+}

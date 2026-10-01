@@ -4,7 +4,7 @@
   "people": [
     {
       "name": "Asmita Sarkar",
-      "role": "Curator · Lead Artist",
+      "role": "Curator · lead artist",
       "bio": "Artist-researcher and Associate Professor, Srishti Manipal Institute of Art, Design and Technology. Works on the phenomenology of embodiment and metaphor in contemporary painting.",
       "coming_soon": false
     },
@@ -16,13 +16,13 @@
     },
     {
       "name": "Khushbu Patel",
-      "role": "Invited Artist",
+      "role": "Invited artist",
       "bio": "Contributes the ongoing *Diary Pages* — pale, intimate, first-person watercolours, a durational counterpart to the exhibition's explanatory voice.",
       "coming_soon": false
     },
     {
       "name": "Manika Kumari",
-      "role": "Invited Artist ",
+      "role": "Invited artist · coming soon",
       "bio": "Work joining shortly, engaging the themes of sensation and pain from her own speculative register.",
       "coming_soon": true
     },
@@ -31,12 +31,6 @@
       "role": "Video & design",
       "bio": "Video editing and design assistance · IISER Pune.",
       "coming_soon": false
-    },
-    {
-      "coming_soon": false,
-      "name": "Hrishikesh Nambisan",
-      "role": "Website Development & Sci-Art Consultation",
-      "bio": "Interested in the intersection of science and art, with special interest in the neuroscience of aesthetics. Studied how animals keep track of time - \"time-cells\" -  in his PhD. "
     }
   ]
 }

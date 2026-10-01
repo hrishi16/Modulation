@@ -3,7 +3,7 @@
 (function () {
 'use strict';
 
-const FILES = ['settings','home','exhibition','takepart','artists','workshops','lineage','people','pages'];
+const FILES = ['settings','home','exhibition','takepart','makemark','artists','workshops','lineage','people','pages'];
 const C = {};
 
 /* ---------- tiny, safe markdown (bold, italic, links, paragraphs) ---------- */
@@ -53,6 +53,7 @@ document.addEventListener('keydown',e=>{
 
 /* ---------- section builders ---------- */
 const head=(label,title)=>`<div class="head"><span class="n">${esc(label||'')}</span><h2>${esc(title||'')}</h2></div>`;
+window.ModUtil={esc,mdi,md,arr,head};
 
 function buildHome(h){
   const pairs=arr(h.pairs);
@@ -157,106 +158,113 @@ function wireExhibition(x){
 }
 
 function buildTakepart(t){
-  const details=arr(t.details), groups=arr(t.word_groups);
-  const detailBtns=details.map((d,i)=>`<button class="detbtn" data-detail="${i}" aria-label="Choose this detail">
-      <span class="detface detface-front"><img src="${esc(d.image)}" alt="Detail, unidentified"></span>
-      <span class="detface detface-back"><img src="${esc(d.full_image)}" alt="${esc(d.title)}"><span class="detname">${esc(d.title)}</span></span>
-    </button>`).join('');
+  const groups=arr(t.word_groups);
   const groupsHTML=groups.map((g,gi)=>`<div class="wordrow"><span class="wordrow-l">${esc(g.label)}</span><div class="wordchips">${arr(g.words).map((w,wi)=>`<button class="chip" data-word="${gi}:${wi}" aria-pressed="false">${esc(w)}</button>`).join('')}</div></div>`).join('');
   return `<section class="block"><div class="wrap">
     ${head(t.label,t.heading)}
     <p class="measure dim" style="margin-top:-1rem;margin-bottom:.6rem">${mdi(t.intro)}</p>
     <p class="nodiag" style="margin-top:0">${esc(t.disclaimer)}</p>
 
-    <div class="tp-step">
-      <span class="tp-num">01</span><span class="tp-label">${esc(t.step1_label)}</span>
-      <div class="tp-body">
+    <div class="tp-grid">
+      <div class="tp-step">
+        <span class="tp-num">01</span><span class="tp-label">${esc(t.step1_label)}</span>
         <div class="bodycard">
-          <svg class="bodysvg" id="bodysvg" viewBox="0 0 200 400" role="img" aria-label="Body outline — tap to mark where a sensation sits">
-            <circle class="outline" cx="100" cy="34" r="26"/>
-            <path class="outline" d="M74,58 C74,52 126,52 126,58 L134,110 C136,150 128,170 100,172 C72,170 64,150 66,110 Z"/>
-            <path class="outline" d="M74,64 C50,72 38,100 40,150 M126,64 C150,72 162,100 160,150"/>
-            <path class="outline" d="M82,172 L78,270 L70,388 M118,172 L122,270 L130,388"/>
-            <line class="outline-foot" x1="60" y1="388" x2="80" y2="388"/>
-            <line class="outline-foot" x1="120" y1="388" x2="140" y2="388"/>
+          <svg class="bodysvg" id="bodysvg" viewBox="0 0 220 460" role="img" aria-label="Body outline — tap where a sensation sits">
+            <g class="outline">
+              <ellipse cx="110" cy="42" rx="27" ry="31"/>
+              <path d="M92,70 Q90,84 78,90 L58,98 Q42,106 40,132 L36,196 Q35,212 46,214 Q54,214 56,198 L60,150 L64,148 L60,214 Q56,300 62,340 L70,410 Q72,438 88,438 Q98,438 96,410 L98,300 Q104,270 110,270 Q116,270 122,300 L124,410 Q122,438 132,438 Q148,438 150,410 L158,340 Q164,300 160,214 L156,148 L160,150 L164,198 Q166,214 174,214 Q185,212 184,196 L180,132 Q178,106 162,98 L142,90 Q130,84 128,70 Q118,80 110,80 Q102,80 92,70 Z"/>
+            </g>
           </svg>
           <div class="marker" id="bodyMarker" hidden></div>
           <p class="dim" style="font-size:.8rem;margin:.7rem 0 0">${esc(t.step1_hint)}</p>
         </div>
       </div>
+
+      <div class="tp-step">
+        <span class="tp-num">02</span><span class="tp-label">${esc(t.step2_label)}</span><span class="tp-sub"> — ${esc(t.step2_sublabel)}</span>
+        <div class="detgrid" id="detgrid"></div>
+        <p class="dim" style="font-size:.8rem;margin-top:.7rem">${mdi(t.step2_caption)}</p>
+      </div>
     </div>
 
-    <div class="tp-step">
-      <span class="tp-num">02</span><span class="tp-label">${esc(t.step2_label)}</span><span class="tp-sub"> — ${esc(t.step2_sublabel)}</span>
-      <div class="detgrid" id="detgrid">${detailBtns}</div>
-      <p class="dim" style="font-size:.8rem;margin-top:.7rem">${mdi(t.step2_caption)}</p>
-    </div>
-
-    <div class="tp-step">
+    <div class="tp-step tp-words">
       <span class="tp-num">03</span><span class="tp-label">${esc(t.step3_label)}</span><span class="tp-sub"> — ${esc(t.step3_sublabel)}</span>
       ${groupsHTML}
     </div>
 
     <div class="tp-out" id="tpOut">
       <p class="tp-status" id="tpStatus"></p>
-      <p class="tp-sentence" id="tpSentence" hidden></p>
-      <div class="tp-actions">
-        <button class="tp-cta" id="tpGoPanel" disabled>${esc(t.cta_panel)}</button>
+      <div class="tp-reveal" id="tpReveal" hidden></div>
+      <div class="tp-actions" id="tpActions" hidden>
+        <button class="tp-cta" id="tpGoPanel">${esc(t.cta_panel)}</button>
         <button class="tp-reset" id="tpReset">${esc(t.cta_reset)}</button>
+        ${t.next_label?`<a class="tp-cta" href="#makemark">${esc(t.next_label)}</a>`:''}
       </div>
+      ${t.closing?`<p class="tp-closing" id="tpClosing" hidden>${esc(t.closing)}</p>`:''}
     </div>
   </div></section>`;
 }
-function wireTakepart(t){
-  const details=arr(t.details), groups=arr(t.word_groups), templates=arr(t.sentence_templates);
-  const svg=document.getElementById('bodysvg'), marker=document.getElementById('bodyMarker'), card=svg.closest('.bodycard');
-  const grid=document.getElementById('detgrid'), status=document.getElementById('tpStatus'),
-        sentenceEl=document.getElementById('tpSentence'), goBtn=document.getElementById('tpGoPanel'), resetBtn=document.getElementById('tpReset');
 
-  let point=null, detailIdx=null, words=[]; // words: [{gi,wi,text}]
+function wireTakepart(t){
+  const allDetails=arr(t.details), groups=arr(t.word_groups);
+  const poolSize=Math.min(t.pool_size||8, allDetails.length);
+  const panels=arr((C.exhibition||{}).panels);
+  const grid=document.getElementById('detgrid'), status=document.getElementById('tpStatus'),
+        reveal=document.getElementById('tpReveal'), actions=document.getElementById('tpActions'),
+        goBtn=document.getElementById('tpGoPanel'), resetBtn=document.getElementById('tpReset');
+  const svg=document.getElementById('bodysvg'), marker=document.getElementById('bodyMarker'), card=svg.closest('.bodycard');
+
+  let point=null, detailIdx=null, words=[], shown=[];
+
+  function sample(){
+    const idx=allDetails.map((_,i)=>i);
+    for(let i=idx.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]];}
+    return idx.slice(0,poolSize);
+  }
+  function renderGrid(){
+    shown=sample();
+    grid.innerHTML=shown.map((di,pos)=>{
+      const d=allDetails[di];
+      return `<button class="detbtn" data-pos="${pos}" aria-label="Choose this detail"><img src="${esc(d.detail)}" alt="Detail from a painting" loading="lazy"></button>`;
+    }).join('');
+  }
 
   function regionFor(x,y){
-    const dx=Math.abs(x-100);
-    if(y<62) return 'the head';
-    if(y>=62 && y<178){ return dx>34 ? 'an arm' : (y<118?'the chest':'the belly'); }
-    return 'a leg';
-  }
-  function placeMarker(x,y){
-    const pt=svg.createSVGPoint(); pt.x=x; pt.y=y;
-    const screen=pt.matrixTransform(svg.getScreenCTM());
-    const r=card.getBoundingClientRect();
-    marker.style.left=(screen.x-r.left)+'px'; marker.style.top=(screen.y-r.top)+'px';
-    marker.hidden=false;
+    const nx=x/220, ny=y/460, dx=Math.abs(nx-0.5);
+    if(ny<0.17) return 'the head';
+    if(ny<0.30) return 'the throat and shoulders';
+    if(ny<0.46) return dx>0.28?'an arm':'the chest';
+    if(ny<0.60) return dx>0.28?'a hand':'the belly';
+    if(ny<0.82) return 'the legs';
+    return 'the feet';
   }
   svg.addEventListener('click',e=>{
     const pt=svg.createSVGPoint(); pt.x=e.clientX; pt.y=e.clientY;
     const loc=pt.matrixTransform(svg.getScreenCTM().inverse());
-    if(point && Math.hypot(loc.x-point.x,loc.y-point.y)<14){ point=null; marker.hidden=true; update(); return; }
+    if(point && Math.hypot(loc.x-point.x,loc.y-point.y)<16){ point=null; marker.hidden=true; update(); return; }
     point={x:loc.x,y:loc.y,region:regionFor(loc.x,loc.y)};
-    placeMarker(loc.x,loc.y);
+    const scr=pt.matrixTransform ? (()=>{const p2=svg.createSVGPoint();p2.x=loc.x;p2.y=loc.y;return p2.matrixTransform(svg.getScreenCTM());})() : null;
+    const r=card.getBoundingClientRect();
+    marker.style.left=(scr.x-r.left)+'px'; marker.style.top=(scr.y-r.top)+'px'; marker.hidden=false;
     update();
   });
 
   grid.addEventListener('click',e=>{
-    const b=e.target.closest('[data-detail]'); if(!b) return;
-    const i=+b.dataset.detail;
-    detailIdx = detailIdx===i ? null : i;
-    [...grid.children].forEach((el,j)=>el.classList.toggle('revealed', j===detailIdx));
+    const b=e.target.closest('[data-pos]'); if(!b) return;
+    const pos=+b.dataset.pos;
+    detailIdx = detailIdx===pos ? null : pos;
+    [...grid.children].forEach((el,j)=>el.classList.toggle('on', j===detailIdx));
     update();
   });
 
-  document.querySelectorAll('.wordrow').forEach(row=>{
+  document.querySelectorAll('#route-takepart .wordrow').forEach(row=>{
     row.addEventListener('click',e=>{
       const b=e.target.closest('[data-word]'); if(!b) return;
       const [gi,wi]=b.dataset.word.split(':').map(Number);
       const idx=words.findIndex(w=>w.gi===gi&&w.wi===wi);
       if(idx>-1){ words.splice(idx,1); b.setAttribute('aria-pressed','false'); }
-      else{
-        if(words.length>=3) return;
-        words.push({gi,wi,text:groups[gi].words[wi]});
-        b.setAttribute('aria-pressed','true');
-      }
-      document.querySelectorAll('.chip').forEach(c=>{
+      else{ if(words.length>=3) return; words.push({gi,wi,text:groups[gi].words[wi]}); b.setAttribute('aria-pressed','true'); }
+      document.querySelectorAll('#route-takepart .chip').forEach(c=>{
         const [cgi,cwi]=c.dataset.word.split(':').map(Number);
         const active=words.some(w=>w.gi===cgi&&w.wi===cwi);
         c.classList.toggle('maxed', !active && words.length>=3);
@@ -265,7 +273,11 @@ function wireTakepart(t){
     });
   });
 
-  function hashPick(str,n){let h=0;for(let i=0;i<str.length;i++){h=(h*31+str.charCodeAt(i))|0;}return Math.abs(h)%n;}
+  function wordList(){
+    if(words.length===1) return words[0].text;
+    if(words.length===2) return words[0].text+' and '+words[1].text;
+    return words.slice(0,-1).map(w=>w.text).join(', ')+', and '+words[words.length-1].text;
+  }
 
   function update(){
     const missing=[];
@@ -274,32 +286,41 @@ function wireTakepart(t){
     if(!words.length) missing.push(t.status_word);
     if(missing.length){
       status.textContent=`${t.status_prefix} ${missing.join(', ')}.`;
-      sentenceEl.hidden=true; goBtn.disabled=true;
+      reveal.hidden=true; actions.hidden=true;
+      const cl0=document.getElementById('tpClosing'); if(cl0)cl0.hidden=true;
       return;
     }
-    status.textContent=t.status_complete;
-    const d=details[detailIdx];
-    const wordText=words.map(w=>w.text).join(', ');
-    const region=point.region, regionCap=region.charAt(0).toUpperCase()+region.slice(1);
-    const key=region+'|'+d.title+'|'+wordText;
-    const tpl=templates[hashPick(key,templates.length)];
-    const sentence=tpl.replace('{region_cap}',regionCap).replace('{region}',region).replace('{theme}',d.theme).replace('{words}',wordText);
-    sentenceEl.textContent=sentence; sentenceEl.hidden=false;
-    goBtn.disabled=false; goBtn.dataset.panel=d.panel_index;
+    status.textContent='';
+    const d=allDetails[shown[detailIdx]];
+    const panel=panels[d.panel_index]||{};
+    reveal.innerHTML=`
+      <div class="rv-art">
+        <div class="rv-fromto"><img class="rv-detail" src="${esc(d.detail)}" alt="the detail you chose"><span class="rv-arrow">↳</span></div>
+        <img class="rv-full" src="${esc(d.full)}" alt="${esc(d.title)}">
+        <span class="rv-cap">${esc(d.title)} · Asmita Sarkar</span>
+      </div>
+      <div class="rv-text">
+        <p class="rv-lead">${esc(t.reveal_intro)} <b>${esc(d.title)}</b> — for a sensation in <b>${esc(point.region)}</b> that is <b>${esc(wordList())}</b>.</p>
+        <div class="rv-sci"><span class="sci">${esc(t.reveal_science_label)} · ${esc(panel.title||'')}</span><p>${mdi(panel.text||'')}</p></div>
+      </div>`;
+    reveal.hidden=false; actions.hidden=false;
+    const cl1=document.getElementById('tpClosing'); if(cl1)cl1.hidden=false;
+    goBtn.dataset.panel=d.panel_index;
   }
 
   goBtn.addEventListener('click',()=>{
     const p=+goBtn.dataset.panel;
     location.hash='exhibition';
-    setTimeout(()=>{ if(window.__gotoPanel) window.__gotoPanel(p); },60);
+    setTimeout(()=>{ if(window.__gotoPanel) window.__gotoPanel(p); },80);
   });
   resetBtn.addEventListener('click',()=>{
-    point=null; detailIdx=null; words=[];
-    marker.hidden=true;
-    [...grid.children].forEach(el=>el.classList.remove('revealed'));
-    document.querySelectorAll('.chip').forEach(c=>{c.setAttribute('aria-pressed','false');c.classList.remove('maxed');});
+    point=null; detailIdx=null; words=[]; marker.hidden=true;
+    document.querySelectorAll('#route-takepart .chip').forEach(c=>{c.setAttribute('aria-pressed','false');c.classList.remove('maxed');});
+    renderGrid();
     update();
   });
+
+  renderGrid();
   update();
 }
 
@@ -417,6 +438,7 @@ function build(){
   routes.push({slug:'home',label:N.home||'Home',inNav:true,html:buildHome(C.home||{}),wire:()=>wireHome(C.home||{})});
   if(N.show_exhibition!==false)routes.push({slug:'exhibition',label:N.exhibition||'The exhibition',inNav:true,html:buildExhibition(C.exhibition||{}),wire:()=>wireExhibition(C.exhibition||{})});
   if(N.show_takepart!==false)routes.push({slug:'takepart',label:N.takepart||'Take part',inNav:true,html:buildTakepart(C.takepart||{}),wire:()=>wireTakepart(C.takepart||{})});
+  if(N.show_makemark!==false&&window.ModMark&&C.makemark&&C.makemark.label)routes.push({slug:'makemark',label:N.makemark||'Make a mark',inNav:true,html:ModMark.build(C.makemark,C.takepart||{}),wire:el=>ModMark.wire(C.makemark,C.takepart||{},C.settings||{},el)});
   const artists=arr((C.artists||{}).artists).filter(a=>a.slug);
   artists.forEach(a=>{const others=artists.filter(o=>o!==a&&o.show_in_nav!==false);
     routes.push({slug:a.slug,label:a.nav_label||a.name,inNav:a.show_in_nav!==false,html:buildArtist(a,(C.artists||{}).statement,others),wire:el=>wireArtist(a,el)});});

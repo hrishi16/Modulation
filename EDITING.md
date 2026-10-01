@@ -10,7 +10,12 @@ Go to the site address with `/admin/` on the end, log in, and you'll see **Site*
 
 **The exhibition** — the six panels. Every image has a *What kind of image is this?* choice: *Artwork*, *Science image*, or *Art made on a science image*. The site labels images from that choice, so choose honestly — a micrograph the artist has drawn on is the third kind, never the second.
 
-**Take part** — the images people choose between in the body-map interactive, the three words for each, and the science line shown after choosing. The mechanism itself is fixed; its content is yours.
+**Take part** — the body-map chooser. The *detail pool* is a list of close crops of real paintings, each with the full painting it reveals and the exhibition panel it belongs to; add as many as you like and the page shows a fresh random handful each time. The word rows (how it feels, how it moves, what it does) are editable too. The page itself is fixed; its content is yours.
+
+**Make a mark** — the drawing page, the workshop run online. You can edit the introduction, the three workshop prompts (and which words each suggests), the colours, the papers, and the *What your hand did* sentences that appear after someone has drawn. Two things to know:
+- *Every word in Take part is a brush here.* The 21 current words each have their own designed mark. A word you add in Take part gets a brush too, with a generic look, until someone designs it a mark of its own.
+- *The reflection reads the three word rows in order:* first row = feels, second = moves, third = does. If you reorder the rows in Take part, the reflections will follow the new order.
+- Nothing visitors draw is stored or sent anywhere; they can save it as an image on their own device.
 
 **Invited artists** — one entry per artist, each with its own room and menu tab. Sections can be a plain row of images, or a *book with magnifying lens* like Khushbu's diary. For Manika: switch off *Work still to come* and add a section when her work arrives. For a new artist: **Add artists**, give a name and a one-word web address (e.g. `manika`), switch on *Show in menu*.
 

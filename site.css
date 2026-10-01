@@ -51,3 +51,53 @@ body[data-theme="light"] .shot-bg{background:rgba(244,240,232,.95)}
 .md p:last-child{margin-bottom:0}
 .md a{color:var(--fluor)}
 .dial .slider{width:100%;max-width:100%;margin-left:0;margin-right:0;box-sizing:border-box}
+
+/* ---------- make a mark ---------- */
+.mm-modes{display:flex;gap:.5rem;margin:0 0 .9rem;flex-wrap:wrap}
+.mm-mode,.mm-btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;background:none;border:1px solid var(--line);color:var(--paper-dim);padding:.5rem .9rem;border-radius:2px;cursor:pointer;text-decoration:none;display:inline-block}
+.mm-mode:hover,.mm-btn:hover{color:var(--paper);border-color:var(--paper-dim)}
+.mm-mode[aria-pressed="true"]{border-color:var(--fluor);color:var(--fluor)}
+.mm-btn:disabled{opacity:.35;cursor:not-allowed}
+.mm-guide{background:var(--stage-2);border:1px solid var(--line-2);border-left:2px solid var(--fluor);border-radius:3px;padding:1.1rem 1.2rem;margin-bottom:0}
+.mm-stephead{display:flex;align-items:baseline;gap:.8rem}
+.mm-stepn{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;color:var(--fluor)}
+.mm-stephead h3{margin:0;font-size:1.35rem}
+.mm-prompt{margin:.7rem 0;color:var(--paper)}
+.mm-try{margin:.6rem 0;color:var(--paper-faint);font-size:.88rem}
+.mm-try .chip{margin:.15rem .3rem .15rem 0}
+.mm-stepnav{display:flex;gap:.5rem;margin-top:.6rem}
+.mm-source{font-size:.78rem;margin:.9rem 0 0}
+.mm-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"stage guide" "stage tools";gap:1.4rem 2rem;align-items:start;margin-top:1.6rem}
+.mm-guidebox{grid-area:guide}
+.mm-stage{grid-area:stage}
+.mm-tools{grid-area:tools}
+.mm-stage{position:sticky;top:8.5rem}
+.mm-canvaswrap{position:relative;aspect-ratio:3/2;border:1px solid var(--line);border-radius:2px;overflow:hidden;background:#222}
+.mm-canvaswrap canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+#mmInk{touch-action:none;cursor:crosshair}
+.mm-under{display:flex;gap:.8rem;align-items:center;margin-top:.8rem;flex-wrap:wrap}
+.mm-title{flex:1 1 160px;min-width:0;background:var(--stage-2);border:1px solid var(--line);color:var(--paper);font-family:var(--display);font-size:1rem;padding:.55rem .7rem;border-radius:2px}
+.mm-actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.mm-tools .mm-sec{margin-bottom:1.5rem}
+.mm-l{display:block;font-family:var(--mono);font-size:.72rem;letter-spacing:.07em;text-transform:uppercase;color:var(--paper-faint);margin-bottom:.55rem}
+.mm-tools .wordrow{margin-top:.8rem}
+.mm-tools .wordrow:first-of-type{margin-top:0}
+.mm-chip.suggest{outline:1px dashed var(--fluor);outline-offset:2px}
+.mm-note{font-size:.84rem;color:var(--paper-dim);margin:.9rem 0 0;min-height:2.6em}
+.mm-sws{display:flex;flex-wrap:wrap;gap:.5rem}
+.mm-sw{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0}
+.mm-sw[aria-pressed="true"]{border-color:var(--paper);box-shadow:0 0 0 2px var(--stage)}
+.mm-grounds{display:flex;gap:.5rem;flex-wrap:wrap}
+.mm-ground{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--body);font-size:.84rem;background:none;border:1px solid var(--line);color:var(--paper-dim);padding:.35rem .7rem;border-radius:999px;cursor:pointer}
+.mm-ground[aria-pressed="true"]{border-color:var(--fluor);color:var(--paper)}
+.mm-gchip{width:14px;height:14px;border-radius:50%;border:1px solid var(--line)}
+.mm-tool2{display:flex;gap:.5rem;flex-wrap:wrap}
+.mm-reflect{margin-top:2.2rem;max-width:46rem;padding:1.4rem 1.6rem;background:var(--stage-2);border:1px solid var(--line-2);border-left:2px solid var(--fluor);border-radius:3px}
+.mm-reflect .sci{display:block;margin-bottom:.7rem}
+.mm-reflect p{margin:.5rem 0;color:var(--paper)}
+.mm-links{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.tp-closing{margin:1.4rem 0 0;max-width:42rem;font-family:var(--display);font-weight:300;font-size:1.15rem;line-height:1.5}
+a.tp-cta{text-decoration:none;display:inline-block}
+@media(max-width:900px){.mm-layout{grid-template-columns:1fr;grid-template-areas:"guide" "stage" "tools"}.mm-stage{position:static}}
+#route-makemark section.block{padding-top:clamp(1.8rem,4vw,3rem)}
+#route-makemark .head{margin-bottom:clamp(1.2rem,3vw,1.8rem)}

@@ -22,7 +22,9 @@
     "show_takepart": true,
     "show_workshops": true,
     "show_lineage": true,
-    "show_people": true
+    "show_people": true,
+    "makemark": "Make a mark",
+    "show_makemark": true
   },
   "footer": {
     "supported_by": "A Seed Grant 2025–2026 from the Manipal Academy of Higher Education",
