@@ -40,14 +40,4 @@ Everything above is editable without code. A new *kind* of interaction — somet
 
 ---
 
-## Showing it to Asmita — about 15 minutes
 
-1. **The live site (3 min).** Open the site address. Walk the tabs: dial on Home, a panel on The exhibition (click the Pain in the Brain painting — art and science open side by side), Take part, Diary Pages with the lens, Workshops with the posters and participant strip.
-2. **The editor (2 min).** Open `/admin/` in a second tab and log in. Point out that it's just forms — no code anywhere.
-3. **A text edit (2 min).** *Home page* → change a word in the opening paragraph → **Publish → Publish now**. Switch to the site tab, wait a minute, reload.
-4. **A new workshop (4 min).** *Workshops* → **Add workshops** → a title, a date, upload any poster image → Publish. Reload the site — it's there, with the poster clickable.
-5. **The look (2 min).** *Settings* → Theme → change the accent colour or switch to Light → Publish → reload. Then switch it back.
-6. **A new tab (2 min).** *Extra pages* → open *About the project* → switch *Show in menu* off and on, or add a text block → Publish.
-7. **Close with the ceiling:** content, images, new artists, workshops, pages, theme — all hers. New interactions — a developer, once.
-
-Do the demo edits on the real site; undo them afterwards (or restore from GitHub's version history).
